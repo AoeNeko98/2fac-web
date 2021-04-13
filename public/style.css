@@ -9140,7 +9140,7 @@ body .modal-backdrop {
   padding: 52px 60px 60px 75px;
 }
 .rs-skillbar.style1 .bg-part {
-  background: url(assets/images/bg/skill.jpg);
+ /*background: url(assets/images/bg/skill.jpg);*/
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center right;
