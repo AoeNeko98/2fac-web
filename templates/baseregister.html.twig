@@ -51,6 +51,7 @@
     <script src="{{ asset('https://oss.maxcdn.com/respond/1.4.2/respond.min.js') }}"></script>
     <![endif]-->
 </head>
+{% block body %}
 <body class="defult-home">
 
 <!-- Preloader area start here -->
@@ -119,14 +120,10 @@
                                                                 <li class="menu-title">Home Multipage</li>
                                                                 <li class="active"><a href="index.html">Business Main</a> </li>
                                                                 <li><a href="index2.html">Forum</a> </li>
-                                                                {% block test %}
-                                                                <li><a href="index3.html">legdima</a> </li>
-
+                                                                <li><a href="index3.html">Consulting 2</a> </li>
                                                                 <li><a href="index4.html">Consulting 1</a> </li>
-
-                                                                <li><a href="index4.html">Consulting 2</a> </li>
-                                                                {% endblock %}
-                                                                <li><a href="{{ path('etablissement_login') }}">Log out</a> </li>
+                                                                <li><a href="index5.html">Business 2</a> </li>
+                                                                <li><a href="index6.html">Insurance</a> </li>
                                                                 <li><a href="index7.html">Saas</a> </li>
                                                                 <li><a href="index8.html">Human Resource</a> </li>
                                                             </ul>
@@ -318,9 +315,10 @@
     <!--Header End-->
 </div>
 <!--Full width header End-->
-{% block body %}
+
 <!-- Main content Start -->
 <div class="main-content">
+
     <!-- Slider Start -->
     <div id="rs-slider" class="rs-slider slider1">
         <div class="bend niceties">
@@ -1366,7 +1364,7 @@
     <!-- Blog Section End -->
 </div>
 <!-- Main content End -->
-{% endblock %}
+{%  endblock %}
 <!-- Footer Start -->
 <footer id="rs-footer" class="rs-footer">
     <div class="container">

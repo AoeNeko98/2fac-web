@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Etablissement{% endblock %}
+
+{% block test %}
+    <li><a href="{{ path("etablissement_edit",{'idEtab':etablissement.idEtab }) }}">Modifier Votre compte</a> </li>
+    <li><a href="{{ path("cours_index",{'id_Etab':etablissement.idEtab}) }}">Mes cours</a> </li>
+{% endblock %}
+
+{% block body %}
+    <h1>Edit Etablissement</h1>
+
+    {{ include('etablissement/_form.html.twig', {'button_label': 'Update'}) }}
+
+    {{ include('etablissement/_delete_form.html.twig') }}
+{% endblock %}

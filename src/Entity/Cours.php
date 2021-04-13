@@ -2,20 +2,24 @@
 
 namespace App\Entity;
 
+use App\Repository\coursRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Cours
  *
  * @ORM\Table(name="cours", uniqueConstraints={@ORM\UniqueConstraint(name="UC_Person", columns={"Nom"})}, indexes={@ORM\Index(name="qid_fk_idl", columns={"ID_Etab"}), @ORM\Index(name="hjgjkh", columns={"ID_SPEC"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=coursRepository::class)
  */
 class Cours
 {
     /**
-     * @var int|null
+     * @var \Etablissement
      *
-     * @ORM\Column(name="ID_Etab", type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity="Etablissement")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_Etab", referencedColumnName="ID_Etab")
+     * })
      */
     private $idEtab;
 
@@ -34,9 +38,12 @@ class Cours
     private $discription;
 
     /**
-     * @var int
+     * @var \Speciality
      *
-     * @ORM\Column(name="ID_SPEC", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Speciality")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_Spec", referencedColumnName="ID_SPEC")
+     * })
      */
     private $idSpec;
 
@@ -48,6 +55,59 @@ class Cours
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idCours;
+
+    public function getIdEtab(): ?Etablissement
+    {
+        return $this->idEtab;
+    }
+
+    public function setIdEtab(?Etablissement $idEtab): self
+    {
+        $this->idEtab = $idEtab;
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(?string $nom): self
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getDiscription(): ?string
+    {
+        return $this->discription;
+    }
+
+    public function setDiscription(?string $discription): self
+    {
+        $this->discription = $discription;
+
+        return $this;
+    }
+
+    public function getIdSpec(): ?Speciality
+    {
+        return $this->idSpec;
+    }
+
+    public function setIdSpec(Speciality $idSpec): self
+    {
+        $this->idSpec = $idSpec;
+
+        return $this;
+    }
+
+    public function getIdCours(): ?int
+    {
+        return $this->idCours;
+    }
 
 
 }

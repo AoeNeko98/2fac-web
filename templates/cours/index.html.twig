@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Cours {% endblock %}
+
+{% block test %}
+    <li><a href="{{ path("etablissement_edit",{'idEtab':id_Etab.idEtab }) }}">Modifier Votre compte</a> </li>
+    <li><a href="{{ path("cours_index",{'id_Etab':id_Etab.idEtab}) }}">Mes cours</a> </li>
+
+{% endblock %}
+
+{% block body %}
+    <h1>Mes Cours </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Discription</th>
+                <th>Nom du specialité</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cour in cours %}
+            {% if id_Etab == cour.idEtab %}
+            <tr>
+                <td>{{ cour.nom }}</td>
+                <td>{{ cour.discription }}</td>
+                <td>{{ cour.idspec.nomSp }}</td>
+                <td>
+                    <a href="{{ path('cours_edit', {'idCours': cour.idCours}) }}">edit</a>
+                </td>
+            </tr>
+        {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('cours_new',{'id_Etab':id_Etab.getIdEtab}) }}">Create new</a>
+    <h1>Tous les Cours </h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Discription</th>
+            <th>Nom du specialité</th>
+            <th>Nom etab</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for cour in cours %}
+                <tr>
+                    <td>{{ cour.nom }}</td>
+                    <td>{{ cour.discription }}</td>
+                    <td>{{ cour.idspec.nomSp }}</td>
+                    <td>{{ cour.idetab.nom }}</td>
+
+                </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

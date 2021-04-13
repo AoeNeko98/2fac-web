@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etablissement index{% endblock %}
+{% block test %}
+    <li><a href="{{ path("etablissement_edit",{'idEtab':etabli.idEtab }) }}">Modifier Votre compte</a> </li>
+    <li><a href="{{ path("cours_index",{'id_Etab':etabli.idEtab}) }}">Mes cours</a> </li>
+
+{% endblock %}
+{% block body %}
+
+<h1>Bienvenue {{ etabli.nom }} Votre id est {{ etabli.idEtab }}</h1>
+{% endblock %}
