@@ -59,5 +59,101 @@ class Commentaires
      */
     private $idArt;
 
+    /**
+     * @return int|null
+     */
+    public function getIdUser(): ?int
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * @param int|null $idUser
+     */
+    public function setIdUser(?int $idUser): void
+    {
+        $this->idUser = $idUser;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDatepubcom(): ?string
+    {
+        return $this->datepubcom;
+    }
+
+    /**
+     * @param string|null $datepubcom
+     */
+    public function setDatepubcom(?string $datepubcom): void
+    {
+        $this->datepubcom = $datepubcom;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getContenue(): ?string
+    {
+        return $this->contenue;
+    }
+
+    /**
+     * @param string|null $contenue
+     */
+    public function setContenue(?string $contenue): void
+    {
+        $this->contenue = $contenue;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdComnt(): int
+    {
+        return $this->idComnt;
+    }
+
+    /**
+     * @param int $idComnt
+     */
+    public function setIdComnt(int $idComnt): void
+    {
+        $this->idComnt = $idComnt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEtat(): string
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @param string $etat
+     */
+    public function setEtat(string $etat): void
+    {
+        $this->etat = $etat;
+    }
+
+    /**
+     * @return \Articles
+     */
+    public function getIdArt(): \Articles
+    {
+        return $this->idArt;
+    }
+
+    /**
+     * @param \Articles $idArt
+     */
+    public function setIdArt(\Articles $idArt): void
+    {
+        $this->idArt = $idArt;
+    }
+
 
 }
