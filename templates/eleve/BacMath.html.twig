@@ -1,0 +1,106 @@
+{% extends 'base-houssem.html.twig' %}
+
+{% block title %}New Eleve{% endblock %}
+
+{% block body %}
+
+
+    <h1>Calculer votre score</h1>
+    <h2>Bac Mathématiques</h2>
+    <div class="m-10 text-center" dir="rtl">
+        <div class="card-body p-20 jumbotron p-10">
+            <div class="d-ib">
+                <form action="" class="uk-grid " uk-grid="">
+                    <div class="uk-width-1-3@m">
+                        <div class="form-group">
+                            <label class="uk-form-label fs-16">Moyenne</label>
+                            <input type="number" required="" class="moyenne text-center uk-form-controls p-10 br-1 bgb-blue uk-input input-mask uk-form-width-small" max="20" min="0" step="0.01" placeholder="20" autocomplete="off" maxlength="5">
+
+                        </div>
+                    </div>
+                    <div class="uk-width-1-3@m">
+                        <div class="form-group">
+                            <label class="uk-form-label fs-16">Mathématique</label>
+                            <input type="number" required="" class="Matiere1 text-center uk-form-controls p-10 br-1 bgb-blue uk-input input-mask uk-form-width-small" max="20" min="0" step="0.25" placeholder="20" autocomplete="off" maxlength="5">
+
+                        </div>
+                    </div>
+                    <div class="uk-width-1-3@m uk-first-column">
+                        <div class="form-group">
+                            <label class="uk-form-label fs-16">Physique</label>
+                            <input type="number" required="" class="Matiere2 text-center uk-form-controls p-10 br-1 bgb-blue uk-input input-mask uk-form-width-small" max="20" min="0" step="0.25" placeholder="20" autocomplete="off" maxlength="5">
+
+                        </div>
+                    </div>
+                    <div class="uk-width-1-3@m uk-grid-margin">
+                        <div class="form-group">
+                            <label class="uk-form-label fs-16">Science (SVT)</label>
+                            <input type="number" required="" class="Matiere3 text-center uk-form-controls p-10 br-1 bgb-blue uk-input input-mask uk-form-width-small" max="20" min="0" step="0.25" placeholder="20" autocomplete="off" maxlength="5">
+
+                        </div>
+                    </div>
+
+                    <div class="uk-width-1-3@m uk-grid-margin">
+                        <div class="form-group">
+                            <label class="uk-form-label fs-16">Français</label>
+                            <input type="number" required="" class="Matiere4 text-center uk-form-controls p-10 br-1 bgb-blue uk-input input-mask uk-form-width-small" max="20" min="0" step="0.25" placeholder="20" autocomplete="off" maxlength="5">
+
+                        </div>
+                    </div>
+                    <div class="uk-width-1-3@m uk-grid-margin uk-first-column">
+                        <div class="form-group">
+                            <label class="uk-form-label fs-16">Anglais</label>
+                            <input type="number" required="" class="Matiere5 text-center uk-form-controls p-10 br-1 bgb-blue uk-input input-mask uk-form-width-small" max="20" min="0" step="0.25" placeholder="20" autocomplete="off" maxlength="5">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-12 uk-grid-margin uk-first-column">
+                        <button onclick="return(calculerScore())" value="Envoyer" class="button primary medium large">Calculer
+                        </button></div>
+                </form>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h5 class="m-t-20 c-blue">Résultats</h5>
+                    <div class="form-group">
+                        <label class="uk-form-label fs-16">Votre Score est</label>
+                        <input type="number" class="text-center score text-center uk-form-controls p-10 br-1 bgb-blue uk-input input-mask uk-form-width-small" max="20" min="0" step="0.25" disabled="" autocomplete="off" maxlength="5">
+
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+
+                function calculerScore(){
+                    var score = 0;
+
+                    n1 = parseFloat($('.Matiere1').val());
+                    n2 = parseFloat($('.Matiere2').val());
+                    n3 = parseFloat($('.Matiere3').val());
+                    n4 = parseFloat($('.Matiere4').val());
+                    n5 = parseFloat($('.Matiere5').val());
+
+                    mg = parseFloat($('.moyenne').val());
+                    if (!isNaN(n1) && !isNaN(n2) && !isNaN(n3) && !isNaN(n4) && !isNaN(n5) && !isNaN(mg)  ){
+                        score = 4*mg + 2*n1 + 0.5*n3 + 1.5*n2 + 1 * n4 + 1 * n5;
+                        $('.score').val(score);
+                        return false;
+                    }else{
+                        return false;
+                    }
+
+                }
+
+            </script>
+        </div>
+    </div>
+
+
+
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+
+    {{ form_end(form) }}
+
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base-houssem.html.twig' %}
+
+{% block title %}Speciality index{% endblock %}
+
+{% block body %}
+    <h1>Speciality index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdEtb</th>
+                <th>NomSp</th>
+                <th>Discription</th>
+                <th>IdSpec</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for speciality in specialities %}
+            <tr>
+                <td>{{ speciality.idEtb }}</td>
+                <td>{{ speciality.nomSp }}</td>
+                <td>{{ speciality.discription }}</td>
+                <td>{{ speciality.idSpec }}</td>
+                <td>
+                    <a href="{{ path('speciality_show', {'idSpec': speciality.idSpec}) }}">show</a>
+                    <a href="{{ path('speciality_edit', {'idSpec': speciality.idSpec}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('speciality_new') }}">Create new</a>
+{% endblock %}

@@ -2,8 +2,8 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Eleve
  *
@@ -17,7 +17,7 @@ class Eleve
      *
      * @ORM\Column(name="ID_User", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     *
      */
     private $idUser;
 
@@ -34,6 +34,54 @@ class Eleve
      * @ORM\Column(name="Bac_Type", type="string", length=30, nullable=true)
      */
     private $bacType;
+
+    /**
+     * @return int
+     */
+    public function getIdUser(): int
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * @param int $idUser
+     */
+    public function setIdUser(int $idUser): void
+    {
+        $this->idUser = $idUser;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getScore(): ?float
+    {
+        return $this->score;
+    }
+
+    /**
+     * @param float|null $score
+     */
+    public function setScore(?float $score): void
+    {
+        $this->score = $score;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getBacType(): ?string
+    {
+        return $this->bacType;
+    }
+
+    /**
+     * @param string|null $bacType
+     */
+    public function setBacType(?string $bacType): void
+    {
+        $this->bacType = $bacType;
+    }
 
 
 }

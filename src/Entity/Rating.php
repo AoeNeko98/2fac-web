@@ -42,5 +42,46 @@ class Rating
      */
     private $idUser;
 
+    public function getRate(): ?float
+    {
+        return $this->rate;
+    }
+
+    public function setRate(float $rate): self
+    {
+        $this->rate = $rate;
+
+        return $this;
+    }
+
+    public function getIdRate(): ?int
+    {
+        return $this->idRate;
+    }
+
+    public function getIdCours(): ?int
+    {
+        return $this->idCours;
+    }
+
+    public function setIdCours(int $idCours): self
+    {
+        $this->idCours = $idCours;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?int
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(int $idUser): self
+    {
+        $this->idUser = $idUser;
+
+        return $this;
+    }
+
 
 }

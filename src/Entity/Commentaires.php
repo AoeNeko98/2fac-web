@@ -59,5 +59,70 @@ class Commentaires
      */
     private $idArt;
 
+    public function getIdUser(): ?int
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(?int $idUser): self
+    {
+        $this->idUser = $idUser;
+
+        return $this;
+    }
+
+    public function getDatepubcom(): ?string
+    {
+        return $this->datepubcom;
+    }
+
+    public function setDatepubcom(?string $datepubcom): self
+    {
+        $this->datepubcom = $datepubcom;
+
+        return $this;
+    }
+
+    public function getContenue(): ?string
+    {
+        return $this->contenue;
+    }
+
+    public function setContenue(?string $contenue): self
+    {
+        $this->contenue = $contenue;
+
+        return $this;
+    }
+
+    public function getIdComnt(): ?int
+    {
+        return $this->idComnt;
+    }
+
+    public function getEtat(): ?string
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(string $etat): self
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getIdArt(): ?Articles
+    {
+        return $this->idArt;
+    }
+
+    public function setIdArt(?Articles $idArt): self
+    {
+        $this->idArt = $idArt;
+
+        return $this;
+    }
+
 
 }

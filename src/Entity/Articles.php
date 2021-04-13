@@ -52,5 +52,58 @@ class Articles
      */
     private $idEtab;
 
+    public function getDatepub(): ?\DateTimeInterface
+    {
+        return $this->datepub;
+    }
+
+    public function setDatepub(?\DateTimeInterface $datepub): self
+    {
+        $this->datepub = $datepub;
+
+        return $this;
+    }
+
+    public function getContenueArticle(): ?string
+    {
+        return $this->contenueArticle;
+    }
+
+    public function setContenueArticle(?string $contenueArticle): self
+    {
+        $this->contenueArticle = $contenueArticle;
+
+        return $this;
+    }
+
+    public function getIdArt(): ?int
+    {
+        return $this->idArt;
+    }
+
+    public function getTitre(): ?string
+    {
+        return $this->titre;
+    }
+
+    public function setTitre(string $titre): self
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    public function getIdEtab(): ?Etablissement
+    {
+        return $this->idEtab;
+    }
+
+    public function setIdEtab(?Etablissement $idEtab): self
+    {
+        $this->idEtab = $idEtab;
+
+        return $this;
+    }
+
 
 }

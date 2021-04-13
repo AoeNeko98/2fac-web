@@ -42,5 +42,46 @@ class Speciality
      */
     private $idSpec;
 
+    public function getIdEtb(): ?int
+    {
+        return $this->idEtb;
+    }
+
+    public function setIdEtb(?int $idEtb): self
+    {
+        $this->idEtb = $idEtb;
+
+        return $this;
+    }
+
+    public function getNomSp(): ?string
+    {
+        return $this->nomSp;
+    }
+
+    public function setNomSp(?string $nomSp): self
+    {
+        $this->nomSp = $nomSp;
+
+        return $this;
+    }
+
+    public function getDiscription(): ?string
+    {
+        return $this->discription;
+    }
+
+    public function setDiscription(?string $discription): self
+    {
+        $this->discription = $discription;
+
+        return $this;
+    }
+
+    public function getIdSpec(): ?int
+    {
+        return $this->idSpec;
+    }
+
 
 }
