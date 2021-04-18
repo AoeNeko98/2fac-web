@@ -1,0 +1,13 @@
+{% extends 'base-houssem.html.twig' %}
+
+{% block title %}Edit Scoreapprox{% endblock %}
+
+{% block body %}
+    <h1>Edit Scoreapprox</h1>
+
+    {{ include('scoreapprox/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('scoreapprox_index') }}">back to list</a>
+
+    {{ include('scoreapprox/_delete_form.html.twig') }}
+{% endblock %}

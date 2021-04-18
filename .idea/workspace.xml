@@ -2,38 +2,58 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17e532a2-2680-42fd-8b52-a7eba3b0fe46" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Form/calcEco.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/eleve/BacEco.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/eleve/BacInfo.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/eleve/BacLet.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/eleve/BacMath.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/eleve/BacSc.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/eleve/BacSp.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/eleve/BacTech.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/eleve/_form-score.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Abonnement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Abonnement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Articles.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Articles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Bacecoscore.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Bacecoscore.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Bacinfoscore.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Bacinfoscore.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Bacletscore.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Bacletscore.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Bacmathscore.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Bacmathscore.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Bacscscore.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Bacscscore.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Bacsportscore.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Bacsportscore.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Bactechscore.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Bactechscore.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Book1.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Book1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Categorie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Categorie.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Club.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Club.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Commentaires.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Commentaires.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Cours.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Cours.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Eleve.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Eleve.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Etablissement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Etablissement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Rating.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Rating.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Scoreapprox.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Scoreapprox.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Speciality.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Speciality.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BookController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/EleveController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SpecialityController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Abonnement.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Articles.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Bacecoscore.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Bacinfoscore.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Bacletscore.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Bacmathscore.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Bacscscore.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Bacsportscore.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Bactechscore.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Book1.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Categorie.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Club.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Commentaires.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Cours.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Eleve.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Etablissement.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Rating.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Scoreapprox.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Speciality.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/EleveType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/FormScoreInfoType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/FormScoreType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/SpecialityType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/calcEco.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/back.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base-houssem.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/eleve/BacEco.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/eleve/BacInfo.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/eleve/BacLet.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/eleve/BacMath.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/eleve/BacSc.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/eleve/BacSp.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/eleve/BacTech.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/eleve/_delete_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/eleve/_form-score.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/eleve/_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/eleve/edit.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/eleve/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/eleve/new.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/eleve/show.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/speciality/_delete_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/speciality/_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/speciality/edit.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/speciality/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/speciality/new.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/speciality/show.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

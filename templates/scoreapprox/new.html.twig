@@ -1,0 +1,11 @@
+{% extends 'base-houssem.html.twig' %}
+
+{% block title %}New Scoreapprox{% endblock %}
+
+{% block body %}
+    <h1>Create new Scoreapprox</h1>
+
+    {{ include('scoreapprox/_form.html.twig') }}
+
+    <a href="{{ path('scoreapprox_index') }}">back to list</a>
+{% endblock %}

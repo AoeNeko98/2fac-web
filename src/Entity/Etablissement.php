@@ -2,118 +2,100 @@
 
 namespace App\Entity;
 
+use App\Repository\EtablissementRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Etablissement
- *
- * @ORM\Table(name="etablissement")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=EtablissementRepository::class)
  */
 class Etablissement
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="ID_Etab", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
-    private $idEtab;
+    private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="Nom", type="string", length=30, nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
-    private $nom;
+    private $Nom;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="Adress", type="string", length=100, nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
-    private $adress;
+    private $Adress;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="Discription", type="text", length=0, nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
-    private $discription;
+    private $Discription;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=50, nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
     private $password;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="Num", type="integer", nullable=false)
+     * @ORM\Column(type="integer")
      */
-    private $num;
+    private $Num;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="Etat", type="integer", nullable=false)
+     * @ORM\Column(type="integer")
      */
-    private $etat = '0';
+    private $Etat;
 
     /**
-     * @var float|null
-     *
-     * @ORM\Column(name="lat", type="float", precision=10, scale=0, nullable=true)
+     * @ORM\OneToMany(targetEntity=Speciality::class, mappedBy="Etablissement")
      */
-    private $lat;
+    public $specialities;
 
-    /**
-     * @var float|null
-     *
-     * @ORM\Column(name="lg", type="float", precision=10, scale=0, nullable=true)
-     */
-    private $lg;
-
-    public function getIdEtab(): ?int
+    public function __construct()
     {
-        return $this->idEtab;
+        $this->specialities = new ArrayCollection();
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
     }
 
     public function getNom(): ?string
     {
-        return $this->nom;
+        return $this->Nom;
     }
 
-    public function setNom(string $nom): self
+    public function setNom(string $Nom): self
     {
-        $this->nom = $nom;
+        $this->Nom = $Nom;
 
         return $this;
     }
 
     public function getAdress(): ?string
     {
-        return $this->adress;
+        return $this->Adress;
     }
 
-    public function setAdress(string $adress): self
+    public function setAdress(string $Adress): self
     {
-        $this->adress = $adress;
+        $this->Adress = $Adress;
 
         return $this;
     }
 
     public function getDiscription(): ?string
     {
-        return $this->discription;
+        return $this->Discription;
     }
 
-    public function setDiscription(string $discription): self
+    public function setDiscription(string $Discription): self
     {
-        $this->discription = $discription;
+        $this->Discription = $Discription;
 
         return $this;
     }
@@ -132,51 +114,55 @@ class Etablissement
 
     public function getNum(): ?int
     {
-        return $this->num;
+        return $this->Num;
     }
 
-    public function setNum(int $num): self
+    public function setNum(int $Num): self
     {
-        $this->num = $num;
+        $this->Num = $Num;
 
         return $this;
     }
 
     public function getEtat(): ?int
     {
-        return $this->etat;
+        return $this->Etat;
     }
 
-    public function setEtat(int $etat): self
+    public function setEtat(int $Etat): self
     {
-        $this->etat = $etat;
+        $this->Etat = $Etat;
 
         return $this;
     }
 
-    public function getLat(): ?float
+    /**
+     * @return Collection|Speciality[]
+     */
+    public function getSpecialities(): Collection
     {
-        return $this->lat;
+        return $this->specialities;
     }
 
-    public function setLat(?float $lat): self
+    public function addSpeciality(Speciality $speciality): self
     {
-        $this->lat = $lat;
+        if (!$this->specialities->contains($speciality)) {
+            $this->specialities[] = $speciality;
+            $speciality->setEtablissement($this);
+        }
 
         return $this;
     }
 
-    public function getLg(): ?float
+    public function removeSpeciality(Speciality $speciality): self
     {
-        return $this->lg;
-    }
-
-    public function setLg(?float $lg): self
-    {
-        $this->lg = $lg;
+        if ($this->specialities->removeElement($speciality)) {
+            // set the owning side to null (unless already changed)
+            if ($speciality->getEtablissement() === $this) {
+                $speciality->setEtablissement(null);
+            }
+        }
 
         return $this;
     }
-
-
 }

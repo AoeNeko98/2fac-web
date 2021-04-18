@@ -8,28 +8,26 @@
     <table class="table">
         <thead>
             <tr>
-                <th>IdEtb</th>
-                <th>NomSp</th>
+                <th>Id</th>
+                <th>Nom_Sp</th>
                 <th>Discription</th>
-                <th>IdSpec</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for speciality in specialities %}
             <tr>
-                <td>{{ speciality.idEtb }}</td>
-                <td>{{ speciality.nomSp }}</td>
-                <td>{{ speciality.discription }}</td>
-                <td>{{ speciality.idSpec }}</td>
+                <td>{{ speciality.id }}</td>
+                <td>{{ speciality.NomSp }}</td>
+                <td>{{ speciality.Discription }}</td>
                 <td>
-                    <a href="{{ path('speciality_show', {'idSpec': speciality.idSpec}) }}">show</a>
-                    <a href="{{ path('speciality_edit', {'idSpec': speciality.idSpec}) }}">edit</a>
+                    <a href="{{ path('speciality_show', {'id': speciality.id}) }}">show</a>
+                    <a href="{{ path('speciality_edit', {'id': speciality.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="4">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

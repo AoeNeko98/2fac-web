@@ -1,0 +1,50 @@
+{% extends 'base-houssem.html.twig' %}
+
+{% block title %}Scoreapprox{% endblock %}
+
+{% block body %}
+    <h1>Scoreapprox</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ scoreapprox.id }}</td>
+            </tr>
+            <tr>
+                <th>ScoreECO</th>
+                <td>{{ scoreapprox.ScoreECO }}</td>
+            </tr>
+            <tr>
+                <th>ScoreINFO</th>
+                <td>{{ scoreapprox.ScoreINFO }}</td>
+            </tr>
+            <tr>
+                <th>ScoreLET</th>
+                <td>{{ scoreapprox.ScoreLET }}</td>
+            </tr>
+            <tr>
+                <th>ScoreMATH</th>
+                <td>{{ scoreapprox.ScoreMATH }}</td>
+            </tr>
+            <tr>
+                <th>ScoreSc</th>
+                <td>{{ scoreapprox.ScoreSc }}</td>
+            </tr>
+            <tr>
+                <th>ScoreSPORT</th>
+                <td>{{ scoreapprox.ScoreSPORT }}</td>
+            </tr>
+            <tr>
+                <th>ScoreTECH</th>
+                <td>{{ scoreapprox.ScoreTECH }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('scoreapprox_index') }}">back to list</a>
+
+    <a href="{{ path('scoreapprox_edit', {'id': scoreapprox.id}) }}">edit</a>
+
+    {{ include('scoreapprox/_delete_form.html.twig') }}
+{% endblock %}

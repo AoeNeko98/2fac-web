@@ -2,162 +2,159 @@
 
 namespace App\Entity;
 
+use App\Repository\ScoreapproxRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Scoreapprox
- *
- * @ORM\Table(name="scoreapprox")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=ScoreapproxRepository::class)
  */
 class Scoreapprox
 {
     /**
-     * @var float
-     *
-     * @ORM\Column(name="ScoreECO", type="float", precision=10, scale=0, nullable=false)
-     */
-    private $scoreeco;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="ScoreINFO", type="float", precision=10, scale=0, nullable=false)
-     */
-    private $scoreinfo;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="ScoreLET", type="float", precision=10, scale=0, nullable=false)
-     */
-    private $scorelet;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="ScoreMATH", type="float", precision=10, scale=0, nullable=false)
-     */
-    private $scoremath;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="ScoreSc", type="float", precision=10, scale=0, nullable=false)
-     */
-    private $scoresc;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="ScoreSPORT", type="float", precision=10, scale=0, nullable=false)
-     */
-    private $scoresport;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="ScoreTECH", type="float", precision=10, scale=0, nullable=false)
-     */
-    private $scoretech;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="ID_SPC", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
-    private $idSpc;
+    private $id;
 
-    public function getScoreeco(): ?float
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $ScoreECO;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $ScoreINFO;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $ScoreLET;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $ScoreMATH;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $ScoreSc;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $ScoreSPORT;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $ScoreTECH;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Speciality::class, inversedBy="scoreapproxes")
+     */
+    public $Speciality;
+
+    public function getId(): ?int
     {
-        return $this->scoreeco;
+        return $this->id;
     }
 
-    public function setScoreeco(float $scoreeco): self
+    public function getScoreECO(): ?float
     {
-        $this->scoreeco = $scoreeco;
+        return $this->ScoreECO;
+    }
+
+    public function setScoreECO(float $ScoreECO): self
+    {
+        $this->ScoreECO = $ScoreECO;
 
         return $this;
     }
 
-    public function getScoreinfo(): ?float
+    public function getScoreINFO(): ?float
     {
-        return $this->scoreinfo;
+        return $this->ScoreINFO;
     }
 
-    public function setScoreinfo(float $scoreinfo): self
+    public function setScoreINFO(float $ScoreINFO): self
     {
-        $this->scoreinfo = $scoreinfo;
+        $this->ScoreINFO = $ScoreINFO;
 
         return $this;
     }
 
-    public function getScorelet(): ?float
+    public function getScoreLET(): ?float
     {
-        return $this->scorelet;
+        return $this->ScoreLET;
     }
 
-    public function setScorelet(float $scorelet): self
+    public function setScoreLET(float $ScoreLET): self
     {
-        $this->scorelet = $scorelet;
+        $this->ScoreLET = $ScoreLET;
 
         return $this;
     }
 
-    public function getScoremath(): ?float
+    public function getScoreMATH(): ?float
     {
-        return $this->scoremath;
+        return $this->ScoreMATH;
     }
 
-    public function setScoremath(float $scoremath): self
+    public function setScoreMATH(float $ScoreMATH): self
     {
-        $this->scoremath = $scoremath;
+        $this->ScoreMATH = $ScoreMATH;
 
         return $this;
     }
 
-    public function getScoresc(): ?float
+    public function getScoreSc(): ?float
     {
-        return $this->scoresc;
+        return $this->ScoreSc;
     }
 
-    public function setScoresc(float $scoresc): self
+    public function setScoreSc(float $ScoreSc): self
     {
-        $this->scoresc = $scoresc;
+        $this->ScoreSc = $ScoreSc;
 
         return $this;
     }
 
-    public function getScoresport(): ?float
+    public function getScoreSPORT(): ?float
     {
-        return $this->scoresport;
+        return $this->ScoreSPORT;
     }
 
-    public function setScoresport(float $scoresport): self
+    public function setScoreSPORT(float $ScoreSPORT): self
     {
-        $this->scoresport = $scoresport;
+        $this->ScoreSPORT = $ScoreSPORT;
 
         return $this;
     }
 
-    public function getScoretech(): ?float
+    public function getScoreTECH(): ?float
     {
-        return $this->scoretech;
+        return $this->ScoreTECH;
     }
 
-    public function setScoretech(float $scoretech): self
+    public function setScoreTECH(float $ScoreTECH): self
     {
-        $this->scoretech = $scoretech;
+        $this->ScoreTECH = $ScoreTECH;
 
         return $this;
     }
 
-    public function getIdSpc(): ?int
+    public function getSpeciality(): ?speciality
     {
-        return $this->idSpc;
+        return $this->Speciality;
     }
 
+    public function setSpeciality(?speciality $Speciality): self
+    {
+        $this->Speciality = $Speciality;
 
+        return $this;
+    }
 }

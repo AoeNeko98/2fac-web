@@ -2,86 +2,116 @@
 
 namespace App\Entity;
 
+use App\Repository\SpecialityRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Speciality
- *
- * @ORM\Table(name="speciality", indexes={@ORM\Index(name="SAH", columns={"ID_Etb"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=SpecialityRepository::class)
  */
 class Speciality
 {
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="ID_Etb", type="integer", nullable=true)
-     */
-    private $idEtb;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Nom_Sp", type="string", length=50, nullable=true)
-     */
-    private $nomSp;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Discription", type="string", length=500, nullable=true)
-     */
-    private $discription;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="ID_SPEC", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
-    private $idSpec;
+    private $id;
 
-    public function getIdEtb(): ?int
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Nom_Sp;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Discription;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Etablissement::class, inversedBy="specialities")
+     */
+    private $Etablissement;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Scoreapprox::class, mappedBy="Speciality")
+     */
+    public $scoreapproxes;
+
+    public function __construct()
     {
-        return $this->idEtb;
+        $this->scoreapproxes = new ArrayCollection();
     }
 
-    public function setIdEtb(?int $idEtb): self
+    public function getId(): ?int
     {
-        $this->idEtb = $idEtb;
-
-        return $this;
+        return $this->id;
     }
 
     public function getNomSp(): ?string
     {
-        return $this->nomSp;
+        return $this->Nom_Sp;
     }
 
-    public function setNomSp(?string $nomSp): self
+    public function setNomSp(string $Nom_Sp): self
     {
-        $this->nomSp = $nomSp;
+        $this->Nom_Sp = $Nom_Sp;
 
         return $this;
     }
 
     public function getDiscription(): ?string
     {
-        return $this->discription;
+        return $this->Discription;
     }
 
-    public function setDiscription(?string $discription): self
+    public function setDiscription(string $Discription): self
     {
-        $this->discription = $discription;
+        $this->Discription = $Discription;
 
         return $this;
     }
 
-    public function getIdSpec(): ?int
+    public function getEtablissement(): ?etablissement
     {
-        return $this->idSpec;
+        return $this->Etablissement;
     }
 
+    public function setEtablissement(?etablissement $Etablissement): self
+    {
+        $this->Etablissement = $Etablissement;
 
+        return $this;
+    }
+
+    /**
+     * @return Collection|Scoreapprox[]
+     */
+    public function getScoreapproxes(): Collection
+    {
+        return $this->scoreapproxes;
+    }
+
+    public function addScoreapprox(Scoreapprox $scoreapprox): self
+    {
+        if (!$this->scoreapproxes->contains($scoreapprox)) {
+            $this->scoreapproxes[] = $scoreapprox;
+            $scoreapprox->setSpeciality($this);
+        }
+
+        return $this;
+    }
+
+    public function removeScoreapprox(Scoreapprox $scoreapprox): self
+    {
+        if ($this->scoreapproxes->removeElement($scoreapprox)) {
+            // set the owning side to null (unless already changed)
+            if ($scoreapprox->getSpeciality() === $this) {
+                $scoreapprox->setSpeciality(null);
+            }
+        }
+
+        return $this;
+    }
 }

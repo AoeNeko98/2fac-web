@@ -2,123 +2,118 @@
 
 namespace App\Entity;
 
+use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Form\FormBuilderInterface;
 
 /**
- * User
- *
- * @ORM\Table(name="user")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=UserRepository::class)
  */
 class User
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="ID_User", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
-    private $idUser;
+    private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="Nom", type="string", length=30, nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
-    private $nom;
+    private $Nom;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="Prenom", type="string", length=30, nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
-    private $prenom;
+    private $Prenom;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="Email", type="string", length=100, nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
-    private $email;
+    private $Email;
 
     /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="date_naissance", type="date", nullable=true)
+     * @ORM\Column(type="date", nullable=true)
      */
-    private $dateNaissance;
+    private $date_naissance;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=50, nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
     private $password;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="Role", type="string", length=50, nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
-    private $role;
+    private $Role;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="addresse", type="string", length=50, nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
-    private $addresse;
+    private $adresse;
 
-    public function getIdUser(): ?int
+    /**
+     * @ORM\OneToMany(targetEntity=Eleve::class, mappedBy="User")
+     */
+    private $eleves;
+
+    public function __construct()
     {
-        return $this->idUser;
+        $this->eleves = new ArrayCollection();
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
     }
 
     public function getNom(): ?string
     {
-        return $this->nom;
+        return $this->Nom;
     }
 
-    public function setNom(string $nom): self
+    public function setNom(string $Nom): self
     {
-        $this->nom = $nom;
+        $this->Nom = $Nom;
 
         return $this;
     }
 
     public function getPrenom(): ?string
     {
-        return $this->prenom;
+        return $this->Prenom;
     }
 
-    public function setPrenom(string $prenom): self
+    public function setPrenom(string $Prenom): self
     {
-        $this->prenom = $prenom;
+        $this->Prenom = $Prenom;
 
         return $this;
     }
 
     public function getEmail(): ?string
     {
-        return $this->email;
+        return $this->Email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail(string $Email): self
     {
-        $this->email = $email;
+        $this->Email = $Email;
 
         return $this;
     }
 
     public function getDateNaissance(): ?\DateTimeInterface
     {
-        return $this->dateNaissance;
+        return $this->date_naissance;
     }
 
-    public function setDateNaissance(?\DateTimeInterface $dateNaissance): self
+    public function setDateNaissance(?\DateTimeInterface $date_naissance): self
     {
-        $this->dateNaissance = $dateNaissance;
+        $this->date_naissance = $date_naissance;
 
         return $this;
     }
@@ -137,27 +132,55 @@ class User
 
     public function getRole(): ?string
     {
-        return $this->role;
+        return $this->Role;
     }
 
-    public function setRole(string $role): self
+    public function setRole(string $Role): self
     {
-        $this->role = $role;
+        $this->Role = $Role;
 
         return $this;
     }
 
-    public function getAddresse(): ?string
+    public function getAdresse(): ?string
     {
-        return $this->addresse;
+        return $this->adresse;
     }
 
-    public function setAddresse(string $addresse): self
+    public function setAdresse(string $adresse): self
     {
-        $this->addresse = $addresse;
+        $this->adresse = $adresse;
 
         return $this;
     }
 
+    /**
+     * @return Collection|Eleve[]
+     */
+    public function getEleves(): Collection
+    {
+        return $this->eleves;
+    }
 
+    public function addElefe(Eleve $elefe): self
+    {
+        if (!$this->eleves->contains($elefe)) {
+            $this->eleves[] = $elefe;
+            $elefe->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeElefe(Eleve $elefe): self
+    {
+        if ($this->eleves->removeElement($elefe)) {
+            // set the owning side to null (unless already changed)
+            if ($elefe->getUser() === $this) {
+                $elefe->setUser(null);
+            }
+        }
+
+        return $this;
+    }
 }

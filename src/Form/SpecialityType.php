@@ -12,9 +12,9 @@ class SpecialityType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('idEtb')
-            ->add('nomSp')
-            ->add('discription')
+            ->add('Nom_Sp')
+            ->add('Discription')
+            ->add('Etablissement')
         ;
     }
 

@@ -2,30 +2,31 @@
 
 namespace App\Form;
 
-use App\Entity\Eleve;
+use App\Entity\Scoreapprox;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
-class FormScoreType extends AbstractType
+class ScoreapproxType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-
-
-            ->add('score')
-            ->add('Sauvegarder votre score', SubmitType::class)
+            ->add('ScoreECO')
+            ->add('ScoreINFO')
+            ->add('ScoreLET')
+            ->add('ScoreMATH')
+            ->add('ScoreSc')
+            ->add('ScoreSPORT')
+            ->add('ScoreTECH')
+            ->add('Speciality')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-
-            'data_class' => Eleve::class,
+            'data_class' => Scoreapprox::class,
         ]);
     }
 }

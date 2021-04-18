@@ -2,86 +2,75 @@
 
 namespace App\Entity;
 
-
+use App\Repository\EleveRepository;
 use Doctrine\ORM\Mapping as ORM;
+
 /**
- * Eleve
- *
- * @ORM\Table(name="eleve")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=EleveRepository::class)
  */
 class Eleve
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="ID_User", type="integer", nullable=false)
      * @ORM\Id
-     *
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
-    private $idUser;
+    private $id;
 
     /**
-     * @var float|null
-     *
-     * @ORM\Column(name="score", type="float", precision=10, scale=0, nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      */
     private $score;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Bac_Type", type="string", length=30, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $bacType;
+    private $Bac_Type;
 
     /**
-     * @return int
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="eleves")
+     * @ORM\JoinColumn(nullable=false)
      */
-    public function getIdUser(): int
+    private $User;
+
+    public function getId(): ?int
     {
-        return $this->idUser;
+        return $this->id;
     }
 
-    /**
-     * @param int $idUser
-     */
-    public function setIdUser(int $idUser): void
-    {
-        $this->idUser = $idUser;
-    }
-
-    /**
-     * @return float|null
-     */
     public function getScore(): ?float
     {
         return $this->score;
     }
 
-    /**
-     * @param float|null $score
-     */
-    public function setScore(?float $score): void
+    public function setScore(?float $score): self
     {
         $this->score = $score;
+
+        return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getBacType(): ?string
     {
-        return $this->bacType;
+        return $this->Bac_Type;
     }
 
-    /**
-     * @param string|null $bacType
-     */
-    public function setBacType(?string $bacType): void
+    public function setBacType(?string $Bac_Type): self
     {
-        $this->bacType = $bacType;
+        $this->Bac_Type = $Bac_Type;
+
+        return $this;
     }
 
+    public function getUser(): ?User
+    {
+        return $this->User;
+    }
 
+    public function setUser(?User $User): self
+    {
+        $this->User = $User;
+
+        return $this;
+    }
 }

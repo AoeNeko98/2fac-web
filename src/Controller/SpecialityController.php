@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Speciality;
 use App\Form\SpecialityType;
+use App\Repository\SpecialityRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,14 +18,10 @@ class SpecialityController extends AbstractController
     /**
      * @Route("/", name="speciality_index", methods={"GET"})
      */
-    public function index(): Response
+    public function index(SpecialityRepository $specialityRepository): Response
     {
-        $specialities = $this->getDoctrine()
-            ->getRepository(Speciality::class)
-            ->findAll();
-
         return $this->render('speciality/index.html.twig', [
-            'specialities' => $specialities,
+            'specialities' => $specialityRepository->findAll(),
         ]);
     }
 
@@ -52,7 +49,7 @@ class SpecialityController extends AbstractController
     }
 
     /**
-     * @Route("/{idSpec}", name="speciality_show", methods={"GET"})
+     * @Route("/{id}", name="speciality_show", methods={"GET"})
      */
     public function show(Speciality $speciality): Response
     {
@@ -62,7 +59,7 @@ class SpecialityController extends AbstractController
     }
 
     /**
-     * @Route("/{idSpec}/edit", name="speciality_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="speciality_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Speciality $speciality): Response
     {
@@ -82,11 +79,11 @@ class SpecialityController extends AbstractController
     }
 
     /**
-     * @Route("/{idSpec}", name="speciality_delete", methods={"POST"})
+     * @Route("/{id}", name="speciality_delete", methods={"POST"})
      */
     public function delete(Request $request, Speciality $speciality): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$speciality->getIdSpec(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$speciality->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($speciality);
             $entityManager->flush();

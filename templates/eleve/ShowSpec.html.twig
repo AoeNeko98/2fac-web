@@ -1,0 +1,104 @@
+{% extends 'base-houssem.html.twig' %}
+
+{% block title %}Speciality index{% endblock %}
+
+{% block body %}
+    <h1>Speciality index</h1>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Rechercher') }}</button>
+    {{ form_end(form) }}
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nom de Spécialitée</th>
+            <th>Faculté</th>
+            <th>Score</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for etab in etabs %}
+                {% for spec in specs if spec.getEtablissement() in etabs %}
+                    {% for score in spec.scoreapproxes %}
+                    <tr>
+                        <td>{{ spec.NomSp }}</td>
+                        <td>{{ etab.Nom }}</td>
+
+
+                        {% if type == "ECO" %}
+
+                            {% if score.ScoreECO > eleve.score+5 %}
+                                <td style="color: red">{{ score.ScoreECO }}</td>
+                            {% elseif score.ScoreECO < eleve.score-5 %}
+                                <td style="color: green">{{ score.ScoreECO }}</td>
+                            {% else %}
+                                <td style="color: orange">{{ score.ScoreECO }}</td>
+                            {% endif%}
+
+                        {% elseif type == "INFO" %}
+                            {% if score.ScoreINFO > eleve.score+5 %}
+                                <td style="color: red">{{ score.ScoreINFO }}</td>
+                            {% elseif score.ScoreINFO < eleve.score-5 %}
+                                <td style="color: green">{{ score.ScoreINFO }}</td>
+                            {% else %}
+                                <td style="color: orange">{{ score.ScoreINFO }}</td>
+                            {% endif %}
+
+                        {% elseif type == "LET" %}
+                            {% if score.ScoreLET > eleve.score+5 %}
+                                <td style="color: red">{{ score.ScoreLET }}</td>
+                            {% elseif score.ScoreLET < eleve.score-5 %}
+                                <td style="color: green">{{ score.ScoreLET }}</td>
+                            {% else %}
+                                <td style="color: orange">{{ score.ScoreLET }}</td>
+                            {% endif %}
+
+                        {% elseif type == "MATH" %}
+                            {% if score.ScoreMATH > eleve.score+5 %}
+                                <td style="color: red">{{ score.ScoreMATH }}</td>
+                            {% elseif score.ScoreMATH < eleve.score-5 %}
+                                <td style="color: green">{{ score.ScoreMATH }}</td>
+                            {% else %}
+                                <td style="color: orange">{{ score.ScoreMATH}}</td>
+                            {% endif %}
+
+                        {% elseif type == "Sc" %}
+                            {% if score.ScoreSc > eleve.score+5 %}
+                                <td style="color: red">{{ score }}</td>
+                            {% elseif score.ScoreSc < eleve.score-5 %}
+                                <td style="color: green">{{ score.ScoreSc }}</td>
+                            {% else %}
+                                <td style="color: orange">{{ score.ScoreSc}}</td>
+                            {% endif %}
+
+                        {% elseif type == "SPORT" %}
+                            {% if score.ScoreSPORT > eleve.score+5 %}
+                                <td style="color: red">{{ score.ScoreSPORT }}</td>
+                            {% elseif score.ScoreSPORT < eleve.score-5 %}
+                                <td style="color: green">{{ score.ScoreSPORT }}</td>
+                            {% else %}
+                                <td style="color: orange">{{ score.ScoreSPORT}}</td>
+                            {% endif %}
+
+                        {% elseif type == "TECH" %}
+                            {% if score.ScoreTECH > eleve.score+5 %}
+                                <td style="color: red">{{ score.ScoreTECH }}</td>
+                            {% elseif score.ScoreTECH < eleve.score-5 %}
+                                <td style="color: green">{{ score.ScoreTECH }}</td>
+                            {% else %}
+                                <td style="color: orange">{{ score.ScoreTECH}}</td>
+                            {% endif %}
+                        {% endif %}
+
+                    </tr>
+                            {% endfor %}
+                {% endfor %}
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

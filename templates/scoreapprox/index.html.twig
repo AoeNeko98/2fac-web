@@ -1,0 +1,47 @@
+{% extends 'base-houssem.html.twig' %}
+
+{% block title %}Scoreapprox index{% endblock %}
+
+{% block body %}
+    <h1>Scoreapprox index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ScoreECO</th>
+                <th>ScoreINFO</th>
+                <th>ScoreLET</th>
+                <th>ScoreMATH</th>
+                <th>ScoreSc</th>
+                <th>ScoreSPORT</th>
+                <th>ScoreTECH</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for scoreapprox in scoreapproxes %}
+            <tr>
+                <td>{{ scoreapprox.id }}</td>
+                <td>{{ scoreapprox.ScoreECO }}</td>
+                <td>{{ scoreapprox.ScoreINFO }}</td>
+                <td>{{ scoreapprox.ScoreLET }}</td>
+                <td>{{ scoreapprox.ScoreMATH }}</td>
+                <td>{{ scoreapprox.ScoreSc }}</td>
+                <td>{{ scoreapprox.ScoreSPORT }}</td>
+                <td>{{ scoreapprox.ScoreTECH }}</td>
+                <td>
+                    <a href="{{ path('scoreapprox_show', {'id': scoreapprox.id}) }}">show</a>
+                    <a href="{{ path('scoreapprox_edit', {'id': scoreapprox.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('scoreapprox_new') }}">Create new</a>
+{% endblock %}

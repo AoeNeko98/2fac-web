@@ -8,21 +8,21 @@
     <table class="table">
         <thead>
             <tr>
-                <th>IdUser</th>
+                <th>Id</th>
                 <th>Score</th>
-                <th>BacType</th>
+                <th>Bac_Type</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for eleve in eleves %}
             <tr>
-                <td>{{ eleve.idUser }}</td>
+                <td>{{ eleve.id }}</td>
                 <td>{{ eleve.score }}</td>
-                <td>{{ eleve.bacType }}</td>
+                <td>{{ eleve.BacType }}</td>
                 <td>
-                    <a href="{{ path('eleve_show', {'idUser': eleve.idUser}) }}">show</a>
-                    <a href="{{ path('eleve_edit', {'idUser': eleve.idUser}) }}">edit</a>
+                    <a href="{{ path('eleve_show', {'id': eleve.id}) }}">show</a>
+                    <a href="{{ path('eleve_edit', {'id': eleve.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +33,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('eleve_new') }}">Create new</a>
+    <a href="{{ path('eleve_new',{'id': 1 })}}">Create new</a>
 {% endblock %}
