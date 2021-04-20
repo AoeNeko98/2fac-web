@@ -55,6 +55,29 @@ class Cours
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idCours;
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="Cours", type="string", length=255, nullable=true)
+     */
+    private $Cours;
+
+    /**
+     * @return string|null
+     */
+    public function getCours()
+    {
+        return $this->Cours;
+    }
+
+    /**
+     * @param string|null $Cours
+     */
+    public function setCours( $Cours): void
+    {
+        $this->Cours = $Cours;
+    }
+
 
     public function getIdEtab(): ?Etablissement
     {

@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\RatingRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * Etablissement
  *
@@ -48,16 +49,27 @@ class Rating
         return $this->rate;
     }
 
-    public function setRate(float $rate): self
+    public function setRate( $rate): self
     {
         $this->rate = $rate;
 
         return $this;
     }
 
-    public function getIdRate(): ?int
+    /**
+     * @return int
+     */
+    public function getIdRate(): int
     {
         return $this->idRate;
+    }
+
+    /**
+     * @param int $idRate
+     */
+    public function setIdRate(int $idRate): void
+    {
+        $this->idRate = $idRate;
     }
 
     public function getIdCours(): ?int

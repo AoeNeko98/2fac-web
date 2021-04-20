@@ -119,7 +119,7 @@ class EtablissementController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($etablissement);
             $entityManager->flush();
-            return $this->redirectToRoute('etablissement_login');
+            return $this->redirectToRoute('etablisscement_login');
         }
 
         return $this->redirectToRoute('etablissement_index',['etab'=>$etablissement->getIdEtab()]);

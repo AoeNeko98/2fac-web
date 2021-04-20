@@ -2,29 +2,110 @@
 
 {% block title %}Cours{% endblock %}
 
-{% block body %}
-    <h1>Cours</h1>
+{% block body  %}
 
+    <h1>Tous les Cours </h1>
+    <form method="post" action="{{ path('recherche') }}">
+        <input type="text" name="recherche">
+
+      <input type="submit" value="Recherche">
+        <input name="id_user" type="hidden" value={{ id_User}} >
+    </form>
+    <form method="post" action="{{ path("Consulter_user",{'id_User':id_User}) }}">
+        <input type="submit" value="Show all">
+    </form>
+    {% set avg=0 %}
+    {% set i=0 %}
+    {% set tot=0 %}
+    {% set ratings=0 %}
     <table class="table">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Discription</th>
+            <th>Nom du specialité</th>
+            <th>Nom etab</th>
+            <th>Rate total</th>
+            <th>Votre rate</th>
+        </tr>
+        </thead>
         <tbody>
+        {% for cour in cours %}
             <tr>
-                <th>Nom</th>
                 <td>{{ cour.nom }}</td>
-            </tr>
-            <tr>
-                <th>Discription</th>
                 <td>{{ cour.discription }}</td>
+                <td>{{ cour.idspec.nomSp }}</td>
+                <td>{{ cour.idetab.nom }}</td>
+                {% for r in rates %}
+                {% if  r.getIdCours == cour.getIdCours %}
+                    {% set i=i+1 %}
+                    {% set tot=tot+r.rate %}
+                    {% set avg=tot/i %}
+                {% endif %}
+                {% endfor %}
+
+                <td>{{ avg }} </td>
+
+                {% set avg=0 %}
+                {% set tot=0 %}
+                {% set i=0 %}
+                {% set idrate=0 %}
+                    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+                    <head>
+                        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+                    </head>
+                    <body>
+                    {% for r in rates %}
+                    {% if r.getIdCours == cour.getIdCours  %}
+                        {% if r.idUser == id_User %}
+                            {% set ratings=r.rate %}
+                            {% set idrate=r.idRate %}
+                        {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    <td>
+                        <div class="row">
+                            <form method="post" action="{{ path('rate') }}">
+
+                                <div class="rateyo" id= "rating"
+                                     data-rateyo-rating="{{ ratings }}"
+                                     data-rateyo-num-stars="5"
+                                     data-rateyo-score="3">
+                                </div>
+
+                                <span class='result' id="rating">{{ ratings }}</span>
+                                <input type="hidden" name="rating"   >
+                                <input type="submit">
+                                <input type="hidden"  name="id_user" value={{ id_User }}>
+                                <input type="hidden" name="idCours" value= {{ cour.idCours }}>
+                                <input type="hidden" name="idrate" value="{{ idrate }}">
+
+                            </form>
+                        </div>
+                    </td>
+                    </div>
+                    </div>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+
+                    <script>
+
+
+                        $(function () {
+                            $(".rateyo").rateYo().on("rateyo.change", function (e, data) {
+                                var rating = data.rating;
+                                $(this).parent().find('.score').text('score :'+ $(this).attr('data-rateyo-score'));
+                                $(this).parent().find('.result').text('rating :'+ rating);
+                                $(this).parent().find('input[name=rating]').val(rating); //add rating value to input field
+                            });
+                        });
+
+                    </script>
+                    </body>
+                <td>   <a href="{{ asset('http://localhost/2fac-web/public/pidevpdf/'~cour.Cours) }}" target="_blank" class="btn btn-success">Cours</a></td>
             </tr>
-            <tr>
-                <th>IdCours</th>
-                <td>{{ cour.idCours }}</td>
-            </tr>
-        </tbody>
+            {% set ratings=0 %}
+        {% endfor %}
     </table>
-
-    <a href="{{ path('cours_index') }}">back to list</a>
-
-    <a href="{{ path('cours_edit', {'idCours': cour.idCours}) }}">edit</a>
-
-    {{ include('cours/_delete_form.html.twig') }}
-{% endblock %}
+{% endblock   %}
