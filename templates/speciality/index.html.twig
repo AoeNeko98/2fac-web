@@ -11,15 +11,30 @@
                 <th>Id</th>
                 <th>Nom_Sp</th>
                 <th>Discription</th>
+                <th>Score Bac Eco</th>
+                <th>Score Bac Info</th>
+                <th>Score Bac Let</th>
+                <th>Score Bac Math</th>
+                <th>Score Bac Science</th>
+                <th>Score Bac Sport</th>
+                <th>Score Bac Tech</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for speciality in specialities %}
+            {% for score in speciality.scoreapproxes %}
             <tr>
                 <td>{{ speciality.id }}</td>
                 <td>{{ speciality.NomSp }}</td>
                 <td>{{ speciality.Discription }}</td>
+                <td>{{ score.ScoreECO }}</td>
+                <td>{{ score.ScoreINFO }}</td>
+                <td>{{ score.ScoreLET }}</td>
+                <td>{{ score.ScoreMATH }}</td>
+                <td>{{ score.ScoreSc }}</td>
+                <td>{{ score.ScoreSPORT }}</td>
+                <td>{{ score.ScoreTECH }}</td>
                 <td>
                     <a href="{{ path('speciality_show', {'id': speciality.id}) }}">show</a>
                     <a href="{{ path('speciality_edit', {'id': speciality.id}) }}">edit</a>
@@ -29,9 +44,10 @@
             <tr>
                 <td colspan="4">no records found</td>
             </tr>
+            {% endfor %}
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('speciality_new') }}">Create new</a>
+    <a href="{{ path('speciality_new', {'id': id}) }}">Create new</a>
 {% endblock %}

@@ -19,7 +19,7 @@ class EleveType extends AbstractType
         $builder
             ->add('Bac_Type', ChoiceType::class, [
         'choices'  => [
-            'Eco' => 'Eco',
+            'Eco' => 'ECO',
             'Info' => 'INFO',
             'Lettres' => 'LET',
             'Math' => 'MATH' ,

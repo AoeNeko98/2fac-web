@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Scoreapprox;
+use App\Entity\Speciality;
 use App\Form\ScoreapproxType;
 use App\Repository\ScoreapproxRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,11 +27,12 @@ class ScoreapproxController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="scoreapprox_new", methods={"GET","POST"})
+     * @Route("/new/{id}", name="scoreapprox_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, Speciality $speciality): Response
     {
         $scoreapprox = new Scoreapprox();
+        $scoreapprox->setSpeciality($speciality);
         $form = $this->createForm(ScoreapproxType::class, $scoreapprox);
         $form->handleRequest($request);
 
@@ -39,7 +41,7 @@ class ScoreapproxController extends AbstractController
             $entityManager->persist($scoreapprox);
             $entityManager->flush();
 
-            return $this->redirectToRoute('scoreapprox_index');
+            return $this->redirectToRoute('speciality_index');
         }
 
         return $this->render('scoreapprox/new.html.twig', [

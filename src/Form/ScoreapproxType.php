@@ -19,7 +19,7 @@ class ScoreapproxType extends AbstractType
             ->add('ScoreSc')
             ->add('ScoreSPORT')
             ->add('ScoreTECH')
-            ->add('Speciality')
+
         ;
     }
 

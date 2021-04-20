@@ -34,6 +34,17 @@ class SpecialityRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+    public function findByEtab($value)
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.Etablissement = :val')
+            ->setParameter('val', $value)
+            ->orderBy('s.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 
 
 
@@ -46,5 +57,6 @@ class SpecialityRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
+
 
 }

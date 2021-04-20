@@ -20,8 +20,9 @@
         </tr>
         </thead>
         <tbody>
-        {% for etab in etabs %}
+
                 {% for spec in specs if spec.getEtablissement() in etabs %}
+                    {% for etab in etabs if spec in etab.getSpecialities()  %}
                     {% for score in spec.scoreapproxes %}
                     <tr>
                         <td>{{ spec.NomSp }}</td>

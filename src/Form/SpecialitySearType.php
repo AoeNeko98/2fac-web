@@ -14,7 +14,10 @@ class SpecialitySearType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
+            ->add('nom' , null,[
+                'required' => false,
+                'empty_data' => 'Nan'
+            ])
             ->add('etab',EntityType::class, [
         'class' => Etablissement::class,
         'choice_label' => 'Nom',

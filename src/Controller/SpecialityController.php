@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Etablissement;
 use App\Entity\Speciality;
 use App\Form\SpecialityType;
 use App\Repository\SpecialityRepository;
@@ -19,18 +20,22 @@ class SpecialityController extends AbstractController
      * @Route("/", name="speciality_index", methods={"GET"})
      */
     public function index(SpecialityRepository $specialityRepository): Response
-    {
+    {   $id=1;
+
+
+
         return $this->render('speciality/index.html.twig', [
-            'specialities' => $specialityRepository->findAll(),
+            'specialities' => $specialityRepository->findByEtab($id),'id'=>$id
         ]);
     }
 
     /**
-     * @Route("/new", name="speciality_new", methods={"GET","POST"})
+     * @Route("/new/{id}", name="speciality_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request,Etablissement $etablissement): Response
     {
         $speciality = new Speciality();
+        $speciality->setEtablissement($etablissement);
         $form = $this->createForm(SpecialityType::class, $speciality);
         $form->handleRequest($request);
 
@@ -39,7 +44,7 @@ class SpecialityController extends AbstractController
             $entityManager->persist($speciality);
             $entityManager->flush();
 
-            return $this->redirectToRoute('speciality_index');
+            return $this->redirectToRoute('scoreapprox_new', ['id'=>$speciality->getId()]);
         }
 
         return $this->render('speciality/new.html.twig', [
@@ -69,7 +74,7 @@ class SpecialityController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('speciality_index');
+            return $this->redirectToRoute('scoreapprox_new', ['id'=>$speciality->getId()]);
         }
 
         return $this->render('speciality/edit.html.twig', [

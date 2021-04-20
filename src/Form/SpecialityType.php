@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Speciality;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,7 +15,6 @@ class SpecialityType extends AbstractType
         $builder
             ->add('Nom_Sp')
             ->add('Discription')
-            ->add('Etablissement')
         ;
     }
 

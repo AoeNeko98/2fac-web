@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Eleve;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -15,9 +16,9 @@ class FormScoreType extends AbstractType
     {
         $builder
 
-
-            ->add('score')
             ->add('Sauvegarder votre score', SubmitType::class)
+            ->add('score')
+
         ;
     }
 
