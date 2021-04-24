@@ -16,14 +16,20 @@
             <th>Nom de Spécialitée</th>
             <th>Faculté</th>
             <th>Score</th>
+            <th>Map</th>
+            <th>Cherche dans Google</th>
 
         </tr>
         </thead>
         <tbody>
 
-                {% for spec in specs if spec.getEtablissement() in etabs %}
-                    {% for etab in etabs if spec in etab.getSpecialities()  %}
-                    {% for score in spec.scoreapproxes %}
+
+
+        {% for spec in specs  %}
+                    {% for etab in etabs   %}
+                        {% if spec.getEtablissement() in etabs  %}
+                    {% for score in spec.scoreapproxes   %}
+                        {% if spec in etab.getSpecialities() %}
                     <tr>
                         <td>{{ spec.NomSp }}</td>
                         <td>{{ etab.Nom }}</td>
@@ -93,9 +99,12 @@
                                 <td style="color: orange">{{ score.ScoreTECH}}</td>
                             {% endif %}
                         {% endif %}
-
+                                <td><a href="{{ path('map', {'Nom': etab.Nom}) }}" class="btn btn-info" role="button">Map</a></td>
+                                <td><a href="https:www.google.tn/search?q={{ etab.Nom }}+%20Tunisie" class="btn btn-info" role="button">Rechercher</a></td>
                     </tr>
+                        {% endif %}
                             {% endfor %}
+                        {% endif %}
                 {% endfor %}
         {% endfor %}
         </tbody>

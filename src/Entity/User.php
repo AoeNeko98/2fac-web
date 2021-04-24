@@ -60,9 +60,18 @@ class User
      */
     private $eleves;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Commentaires::class, mappedBy="author")
+     */
+    private $commentaires;
+
+
+
     public function __construct()
     {
         $this->eleves = new ArrayCollection();
+        $this->content = new ArrayCollection();
+        $this->commentaires = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -183,4 +192,35 @@ class User
 
         return $this;
     }
+
+    /**
+     * @return Collection|Commentaires[]
+     */
+    public function getCommentaires(): Collection
+    {
+        return $this->commentaires;
+    }
+
+    public function addCommentaire(Commentaires $commentaire): self
+    {
+        if (!$this->commentaires->contains($commentaire)) {
+            $this->commentaires[] = $commentaire;
+            $commentaire->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaire(Commentaires $commentaire): self
+    {
+        if ($this->commentaires->removeElement($commentaire)) {
+            // set the owning side to null (unless already changed)
+            if ($commentaire->getAuthor() === $this) {
+                $commentaire->setAuthor(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

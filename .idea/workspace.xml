@@ -5,37 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17e532a2-2680-42fd-8b52-a7eba3b0fe46" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/2fac.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/2fac.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ScoreapproxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ScoreapproxController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/SpecialityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SpecialityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/SpecialitySear.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/SpecialitySear.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/EleveType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/EleveType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/FormScoreType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FormScoreType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ScoreapproxType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ScoreapproxType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/SpecialitySearType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SpecialitySearType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/SpecialityType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SpecialityType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/SpecialityRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/SpecialityRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Etablissement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Etablissement.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base-houssem.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base-houssem.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/eleve/BacEco.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/eleve/BacEco.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/eleve/BacInfo.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/eleve/BacInfo.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/eleve/BacLet.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/eleve/BacLet.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/eleve/BacMath.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/eleve/BacMath.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/eleve/BacSc.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/eleve/BacSc.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/eleve/BacSp.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/eleve/BacSp.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/eleve/BacTech.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/eleve/BacTech.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/eleve/ShowOneSpec.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/eleve/ShowOneSpec.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/eleve/ShowSpec.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/eleve/ShowSpec.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/scoreapprox/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/scoreapprox/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/scoreapprox/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/scoreapprox/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/scoreapprox/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/scoreapprox/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/speciality/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/speciality/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,9 +146,13 @@
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-eventmanager" />
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/symfony/web-server-bundle" />
-      <path value="$PROJECT_DIR$/vendor/uikit/uikit" />
-      <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
-      <path value="$PROJECT_DIR$/vendor/twbs/bootstrap" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/twig/intl-extra" />
+      <path value="$PROJECT_DIR$/vendor/twig/string-extra" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/kms/froala-editor-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1qw9xdo9bqEKq3mlVdqMmjiZeSv" />
@@ -172,11 +161,14 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/eleve/css" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -204,6 +196,8 @@
       <workItem from="1618227725495" duration="10801000" />
       <workItem from="1618757266599" duration="14206000" />
       <workItem from="1618872897197" duration="7605000" />
+      <workItem from="1618916801646" duration="1601000" />
+      <workItem from="1619186507132" duration="28766000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,22 @@
+{% extends 'base-houssem.html.twig' %}
+
+{% block title %} Forum {% endblock %}
+
+{% block body %}
+{% for article in articles %}
+    <article style="margin-left: 400px">
+        <h2>{{article.title | raw}}</h2>
+        <h3>{{ article.getEtablissement().Nom }}</h3>
+        <div class="metadata">{{ article.createdAt | format_datetime() }}</div>
+        <div class="content">
+            <img src="{{asset('/uploads/'~ article.image )  }}" alt="">
+            <div>
+                <p>{{ article.content | u.truncate(100) | raw }}</p>
+            </div>
+
+        </div>
+        <a href="{{ path('article_show', {'id': article.id})  }}" class="btn btn-info">Lire la suite</a>
+    </article>
+
+{% endfor%}
+{% endblock %}

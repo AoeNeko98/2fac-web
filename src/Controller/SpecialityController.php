@@ -28,6 +28,18 @@ class SpecialityController extends AbstractController
             'specialities' => $specialityRepository->findByEtab($id),'id'=>$id
         ]);
     }
+    /**
+     * @Route("/{Nom}", name="map", methods={"GET"})
+     */
+    public function Map($Nom): Response
+    {
+
+
+
+        return $this->render('eleve/Map.html.twig', [
+            'Nom' => $Nom
+        ]);
+    }
 
     /**
      * @Route("/new/{id}", name="speciality_new", methods={"GET","POST"})
@@ -43,6 +55,7 @@ class SpecialityController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($speciality);
             $entityManager->flush();
+
 
             return $this->redirectToRoute('scoreapprox_new', ['id'=>$speciality->getId()]);
         }

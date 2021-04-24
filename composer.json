@@ -10,6 +10,7 @@
         "doctrine/doctrine-bundle": "^2.3",
         "doctrine/doctrine-migrations-bundle": "^2.2",
         "doctrine/orm": "^2.7",
+        "kms/froala-editor-bundle": "^4.0",
         "phpdocumentor/reflection-docblock": "^4.3",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "4.4.*",
@@ -36,9 +37,12 @@
         "symfony/web-server-bundle": "^4.4",
         "symfony/yaml": "4.4.*",
         "twig/extra-bundle": "^2.12|^3.0",
+        "twig/intl-extra": "^3.3",
+        "twig/string-extra": "^3.3",
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "symfony/browser-kit": "^4.4",
         "symfony/css-selector": "^4.4",
         "symfony/debug-bundle": "^4.4",
@@ -93,4 +97,5 @@
             "require": "4.4.*"
         }
     }
+
 }

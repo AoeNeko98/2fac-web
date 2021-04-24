@@ -1,0 +1,36 @@
+{% extends 'base-houssem.html.twig' %}
+
+{% block title %}Forum{% endblock %}
+
+{% block body %}
+
+        <article >
+            <h2 style="margin-left: 400px">{{article.title | raw}}</h2>
+            <h3 style="margin-left: 400px">{{ article.getEtablissement().Nom }}</h3>
+            <div style="margin-left: 400px" class="metadata">{{ article.createdAt | format_datetime() }}</div>
+            <div class="content">
+                <img style="margin-left: 400px" src="{{asset('/uploads/'~ article.image )  }}" alt="">
+                <p>{{ article.content | raw }}</p>
+            </div>
+        </article>
+    <section id="commetaires">
+        {% for comment in article.commentaires %}
+        <div class="comment">
+            <div class="row">
+                <div class="col-3">
+                    {{ comment.author.Nom }} (<small>{{ comment.createdAt | format_datetime() }}</small>)
+                </div>
+                <div class="col">
+                    {{ comment.content | raw }}
+                </div>
+            </div>
+        </div>
+
+    </section>
+    {% endfor %}
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+
+{% endblock %}

@@ -16,6 +16,8 @@
             <th>Nom de Spécialitée</th>
             <th>Faculté</th>
             <th>Score</th>
+            <th>Map</th>
+            <th>Cherche dans Google</th>
 
         </tr>
         </thead>
@@ -92,6 +94,8 @@
                                 <td style="color: orange">{{ score.ScoreTECH}}</td>
                             {% endif %}
                         {% endif %}
+                        <td><a href="{{ path('map', {'Nom': etabs.Nom}) }}" class="btn btn-info" role="button">Map</a></td>
+                        <td><a href="https:www.google.tn/search?q={{ etabs.Nom }}+%20Tunisie" class="btn btn-info" role="button">Rechercher</a></td>
 
                     </tr>
             {% endfor %}
