@@ -2,77 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17e532a2-2680-42fd-8b52-a7eba3b0fe46" name="Default Changelist" comment="Second commit">
-      <change beforePath="$PROJECT_DIR$/.idea/2fac.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/2fac.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/adminlte.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/adminlte.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/animate.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/animate.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/magnific-popup.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/magnific-popup.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/materialize.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/materialize.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/off-canvas.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/off-canvas.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/owl.carousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/owl.carousel.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/owl.video.play.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/owl.video.play.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/responsive.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/responsive.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/rs-animations.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/rs-animations.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/rs-spacing.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/rs-spacing.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/rsmenu-main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/rsmenu-main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/rsmenu-transitions.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/rsmenu-transitions.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/slick.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/slick.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/fonts/Flaticon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/fonts/Flaticon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/fonts/flaticon.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/fonts/flaticon.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/fonts/fontawesome-webfont3e6e.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/fonts/fontawesome-webfont3e6e.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/fonts/linea-basic-10.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/fonts/linea-basic-10.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/fonts/linea-basic-10.svg.readme" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/fonts/linea-basic-10.svg.readme" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/fonts/linea-fonts.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/fonts/linea-fonts.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/inc/custom-slider/css/nivo-slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/inc/custom-slider/css/nivo-slider.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/inc/custom-slider/css/preview.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/inc/custom-slider/css/preview.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/inc/custom-slider/img/arrows.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/inc/custom-slider/img/arrows.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/inc/custom-slider/img/bullets.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/inc/custom-slider/img/bullets.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/inc/custom-slider/img/loading.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/inc/custom-slider/img/loading.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/inc/custom-slider/js/jquery.nivo.slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/inc/custom-slider/js/jquery.nivo.slider.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/contact.form.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/contact.form.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/imagesloaded.pkgd.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/imagesloaded.pkgd.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/isotope.pkgd.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/isotope.pkgd.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/jQuery-plugin-progressbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/jQuery-plugin-progressbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/jquery.counterup.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/jquery.counterup.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/jquery.magnific-popup.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/jquery.magnific-popup.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/jquery.mb.YTPlayer.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/jquery.mb.YTPlayer.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/jquery.nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/jquery.nav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/materialize.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/materialize.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/modernizr-2.8.3.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/modernizr-2.8.3.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/owl.carousel.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/owl.carousel.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/parallax-effect.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/parallax-effect.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/plugins.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/plugins.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/rsmenu-main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/rsmenu-main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/skill.bars.jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/skill.bars.jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/slick.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/slick.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/waypoints.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/waypoints.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/wow.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/wow.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/newpdf.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/newpdf.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/clubRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/clubRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/back.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/back.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/baseregister.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/baseregister.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/club/listp.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/club/listp.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/club/newindex.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/club/newindex.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/inscription.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/inscription.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/club/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/club/new.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +185,7 @@
       <workItem from="1619178254476" duration="22936000" />
       <workItem from="1619208558864" duration="2870000" />
       <workItem from="1619213869453" duration="20540000" />
-      <workItem from="1619263354969" duration="7485000" />
+      <workItem from="1619263354969" duration="10717000" />
     </task>
     <servers />
   </component>

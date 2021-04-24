@@ -32,10 +32,10 @@ class UserController extends Controller
         $session = $request->getSession();
         $mavariable = $session->get('mavariable');
         if (isset($mavariable)) {
-            echo 'ma session est deja ouverte '.$mavariable;
+       //     echo 'ma session est deja ouverte '.$mavariable;
         } else {
-            echo 'nouvelle variable '.$mavariable;
-            $session->set('mavariable','bienvenu');
+            //echo 'nouvelle variable '.$mavariable;
+//            $session->set('mavariable','name');
 
         }
         $users = $this->getDoctrine()
@@ -127,6 +127,12 @@ class UserController extends Controller
                         $user->setIdUser($user1->getIdUser());
                         return $this->redirectToRoute('club_newindex', ['idUser' => $user->getIdUser()]);
                         return $this->render('club/newindex.html.twig', [
+                            'clubs' => $clubRepository->findAll(), 'name' => $name
+                        ]);
+                    }else if ($user1->getRole() == "Etablissement") {
+                        $user->setIdUser($user1->getIdUser());
+                        return $this->redirectToRoute('club_index', ['idUser' => $user->getIdUser()]);
+                        return $this->render('club/index.html.twig', [
                             'clubs' => $clubRepository->findAll(), 'name' => $name
                         ]);
                     }
