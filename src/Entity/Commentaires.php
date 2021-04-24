@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use App\Repository\commentairesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Commentaires
  *
  * @ORM\Table(name="commentaires", indexes={@ORM\Index(name="qcp_fk_idl", columns={"ID_art"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=commentairesRepository::class)
  */
 class Commentaires
 {
@@ -58,6 +59,71 @@ class Commentaires
      * })
      */
     private $idArt;
+
+    public function getIdUser(): ?int
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(?int $idUser): self
+    {
+        $this->idUser = $idUser;
+
+        return $this;
+    }
+
+    public function getDatepubcom(): ?string
+    {
+        return $this->datepubcom;
+    }
+
+    public function setDatepubcom(?string $datepubcom): self
+    {
+        $this->datepubcom = $datepubcom;
+
+        return $this;
+    }
+
+    public function getContenue(): ?string
+    {
+        return $this->contenue;
+    }
+
+    public function setContenue(?string $contenue): self
+    {
+        $this->contenue = $contenue;
+
+        return $this;
+    }
+
+    public function getIdComnt(): ?int
+    {
+        return $this->idComnt;
+    }
+
+    public function getEtat(): ?string
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(string $etat): self
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getIdArt(): ?Articles
+    {
+        return $this->idArt;
+    }
+
+    public function setIdArt(?Articles $idArt): self
+    {
+        $this->idArt = $idArt;
+
+        return $this;
+    }
 
 
 }

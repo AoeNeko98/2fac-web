@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use App\Repository\ScoreapproxRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Scoreapprox
  *
  * @ORM\Table(name="scoreapprox")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=scoreapproxRepository::class)
  */
 class Scoreapprox
 {
@@ -69,6 +70,95 @@ class Scoreapprox
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idSpc;
+
+    public function getScoreeco(): ?float
+    {
+        return $this->scoreeco;
+    }
+
+    public function setScoreeco(float $scoreeco): self
+    {
+        $this->scoreeco = $scoreeco;
+
+        return $this;
+    }
+
+    public function getScoreinfo(): ?float
+    {
+        return $this->scoreinfo;
+    }
+
+    public function setScoreinfo(float $scoreinfo): self
+    {
+        $this->scoreinfo = $scoreinfo;
+
+        return $this;
+    }
+
+    public function getScorelet(): ?float
+    {
+        return $this->scorelet;
+    }
+
+    public function setScorelet(float $scorelet): self
+    {
+        $this->scorelet = $scorelet;
+
+        return $this;
+    }
+
+    public function getScoremath(): ?float
+    {
+        return $this->scoremath;
+    }
+
+    public function setScoremath(float $scoremath): self
+    {
+        $this->scoremath = $scoremath;
+
+        return $this;
+    }
+
+    public function getScoresc(): ?float
+    {
+        return $this->scoresc;
+    }
+
+    public function setScoresc(float $scoresc): self
+    {
+        $this->scoresc = $scoresc;
+
+        return $this;
+    }
+
+    public function getScoresport(): ?float
+    {
+        return $this->scoresport;
+    }
+
+    public function setScoresport(float $scoresport): self
+    {
+        $this->scoresport = $scoresport;
+
+        return $this;
+    }
+
+    public function getScoretech(): ?float
+    {
+        return $this->scoretech;
+    }
+
+    public function setScoretech(float $scoretech): self
+    {
+        $this->scoretech = $scoretech;
+
+        return $this;
+    }
+
+    public function getIdSpc(): ?int
+    {
+        return $this->idSpc;
+    }
 
 
 }

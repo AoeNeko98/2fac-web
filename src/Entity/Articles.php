@@ -1,14 +1,16 @@
 <?php
 
+
 namespace App\Entity;
 
+use App\Repository\ArticlesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Articles
  *
  * @ORM\Table(name="articles", indexes={@ORM\Index(name="qp_fk_idl", columns={"ID_Etab"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=ArticlesRepository::class)
  */
 class Articles
 {
@@ -51,6 +53,59 @@ class Articles
      * })
      */
     private $idEtab;
+
+    public function getDatepub(): ?\DateTimeInterface
+    {
+        return $this->datepub;
+    }
+
+    public function setDatepub(?\DateTimeInterface $datepub): self
+    {
+        $this->datepub = $datepub;
+
+        return $this;
+    }
+
+    public function getContenueArticle(): ?string
+    {
+        return $this->contenueArticle;
+    }
+
+    public function setContenueArticle(?string $contenueArticle): self
+    {
+        $this->contenueArticle = $contenueArticle;
+
+        return $this;
+    }
+
+    public function getIdArt(): ?int
+    {
+        return $this->idArt;
+    }
+
+    public function getTitre(): ?string
+    {
+        return $this->titre;
+    }
+
+    public function setTitre(string $titre): self
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    public function getIdEtab(): ?Etablissement
+    {
+        return $this->idEtab;
+    }
+
+    public function setIdEtab(?Etablissement $idEtab): self
+    {
+        $this->idEtab = $idEtab;
+
+        return $this;
+    }
 
 
 }

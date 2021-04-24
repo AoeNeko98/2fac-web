@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use App\Repository\RatingRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Rating
+ * Etablissement
  *
- * @ORM\Table(name="rating", indexes={@ORM\Index(name="OLJK", columns={"ID_Cours"}), @ORM\Index(name="HGJGKL", columns={"ID_USER"})})
- * @ORM\Entity
+ * @ORM\Table(name="Rating")
+ * @ORM\Entity(repositoryClass=RatingRepository::class)
  */
 class Rating
 {
@@ -41,6 +42,47 @@ class Rating
      * @ORM\Column(name="ID_USER", type="integer", nullable=false)
      */
     private $idUser;
+
+    public function getRate(): ?float
+    {
+        return $this->rate;
+    }
+
+    public function setRate(float $rate): self
+    {
+        $this->rate = $rate;
+
+        return $this;
+    }
+
+    public function getIdRate(): ?int
+    {
+        return $this->idRate;
+    }
+
+    public function getIdCours(): ?int
+    {
+        return $this->idCours;
+    }
+
+    public function setIdCours(int $idCours): self
+    {
+        $this->idCours = $idCours;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?int
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(int $idUser): self
+    {
+        $this->idUser = $idUser;
+
+        return $this;
+    }
 
 
 }

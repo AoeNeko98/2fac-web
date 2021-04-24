@@ -1,14 +1,16 @@
 <?php
 
+
 namespace App\Entity;
 
+use App\Repository\AbonnementRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Abonnement
+ * Abonnementphp bin/console make:entity --regenerate
  *
- * @ORM\Table(name="abonnement", indexes={@ORM\Index(name="oiuli", columns={"ID_User"}), @ORM\Index(name="nbvx", columns={"ID_Club"})})
- * @ORM\Entity
+ * @ORM\Table(name="abonnement", indexes={@ORM\Index(name="nbvx", columns={"ID_Club"}), @ORM\Index(name="oiuli", columns={"ID_User"})})
+ * @ORM\Entity(repositoryClass=AbonnementRepository::class)
  */
 class Abonnement
 {
@@ -47,6 +49,47 @@ class Abonnement
      * })
      */
     private $idUser;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getIdClub(): ?self
+    {
+        return $this->idClub;
+    }
+
+    public function setIdClub(?self $idClub): self
+    {
+        $this->idClub = $idClub;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?User
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(?User $idUser): self
+    {
+        $this->idUser = $idUser;
+
+        return $this;
+    }
 
 
 }
