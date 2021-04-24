@@ -1,0 +1,12 @@
+{% extends 'baseregister.html.twig' %}
+{% block body %}
+
+    {{ form_start(form) }}
+    {{ form_end(form) }}
+     {% for me in app.flashes('success') %}
+        {{ me }}
+    {% endfor %}
+
+
+
+{% endblock %}

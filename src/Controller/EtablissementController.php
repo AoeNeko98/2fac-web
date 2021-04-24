@@ -4,12 +4,16 @@ namespace App\Controller;
 
 use App\Entity\Etablissement;
 use App\Form\EtablissementType;
+use App\Form\LostPassType;
 use App\Repository\EtablissementRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Twilio;
 
 /**
  * @Route("/etablissement",methods={"GET","POST"})
@@ -110,7 +114,7 @@ class EtablissementController extends AbstractController
     }
 
     /**
-     * @Route("/{idEtab}", name="etablissement_delete", methods={"GET","POST"})
+     * @Route("/del/{idEtab}", name="etablissement_delete", methods={"GET","POST"})
      *
      */
     public function delete(Request $request, Etablissement $etablissement): Response
@@ -123,6 +127,39 @@ class EtablissementController extends AbstractController
         }
 
         return $this->redirectToRoute('etablissement_index',['etab'=>$etablissement->getIdEtab()]);
+    }
+
+    /**
+     * @Route("/Lostpass", name="Lostpass", methods={"GET","POST"})
+     *
+     */
+    public function lostpass(Request $request,EtablissementRepository $repo){
+        $etablissement=new Etablissement();
+        $form = $this->createForm(LostPassType::class, $etablissement)
+        ->add('nom',TextType::class)
+        ->add('submit', SubmitType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user1=$repo->findOneBy(array('nom'=>$etablissement->getNom()));
+            if($user1){
+                $client = new Twilio\Rest\Client('ACe1490497eaf1f7648005b7e398d9a671', '541d249256d51340210ed77f17eb1bb7');
+                $message = $client->messages->create(
+                    '+216'.$user1->getNum(), // Text this number
+                    [
+                        'from' => '+12034086653', // From a valid Twilio number
+                        'body' => 'Salut, '.$user1->getNom().' Votre mot de passe est '.$user1->getPassword(),
+                    ]
+                             );
+                $this->addFlash('success', 'Message Envoye');
+            }else{
+                $this->addFlash('success', 'Name not found');
+            }
+
+
+        }
+        return $this->render('/etablissement/Lostpass.html.twig',[
+            'form'=>$form->createView(),
+        ]);
     }
 
 }

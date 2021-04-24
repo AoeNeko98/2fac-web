@@ -2,16 +2,59 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17e532a2-2680-42fd-8b52-a7eba3b0fe46" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Form/LostPassType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/basejdida.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/etablissement/Lostpass.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/2fac.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/2fac.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CoursController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CoursController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/EtablissementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EtablissementController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Cours.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Cours.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Rating.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Rating.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/CoursType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CoursType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Abonnement.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Articles.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Bacecoscore.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Bacinfoscore.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Bacletscore.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Bacmathscore.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Bacscscore.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Bacsportscore.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Bactechscore.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Book1.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Categorie.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Club.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Commentaires.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Eleve.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Scoreapprox.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Speciality.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/AbonnementRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ArticlesRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/BacecoscoreRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/Book1Repository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/EleveRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ScoreapproxRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/SpecialityRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/bacinfoscoreRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/bacletscoreRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/bacsportscoreRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/bactechscoreRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/categorieRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/clubRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/commentairesRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/book/bib.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/bib.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cours/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cours/edit.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cours/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cours/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cours/index2.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cours/index2.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cours/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cours/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cours/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cours/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/etablissement/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/etablissement/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/etablissement/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/etablissement/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/etablissement/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/etablissement/login.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,6 +180,8 @@
       <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
       <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/mercuryseries/flashy-bundle" />
+      <path value="$PROJECT_DIR$/vendor/twilio/sdk" />
     </include_path>
   </component>
   <component name="ProjectId" id="1qw9xdo9bqEKq3mlVdqMmjiZeSv" />
@@ -198,6 +243,13 @@
       <workItem from="1618873032910" duration="2015000" />
       <workItem from="1618875102908" duration="624000" />
       <workItem from="1618877704662" duration="253000" />
+      <workItem from="1618916347783" duration="644000" />
+      <workItem from="1618940058843" duration="131000" />
+      <workItem from="1618940210607" duration="675000" />
+      <workItem from="1618944441431" duration="548000" />
+      <workItem from="1619189586273" duration="2747000" />
+      <workItem from="1619220630539" duration="2625000" />
+      <workItem from="1619304296636" duration="319000" />
     </task>
     <servers />
   </component>
@@ -220,7 +272,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/templates/base.html.twig</url>
+          <url>file://$PROJECT_DIR$/templates/basejdida.html.twig</url>
           <line>1552</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
