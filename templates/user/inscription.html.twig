@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}aaaaaaaaaaa{% endblock %}
+
+{% block body %}
+    <h1>aaaaaaaaa</h1>
+
+    {{ include('user/inscription.html.twig') }}
+
+    <a href="{{ path('user_new') }}">back to list</a>
+{% endblock %}

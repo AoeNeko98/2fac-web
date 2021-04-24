@@ -3,45 +3,62 @@
 {% block title %}User index{% endblock %}
 
 {% block body %}
-    <h1>User index</h1>
+    <a href="{{('login/login') }}">Logout</a>
+<h1> {{ app.session.get('mavariable') }}</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>IdUser</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Email</th>
-                <th>DateNaissance</th>
-                <th>Password</th>
-                <th>Role</th>
-                <th>Addresse</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.idUser }}</td>
-                <td>{{ user.nom }}</td>
-                <td>{{ user.prenom }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.dateNaissance ? user.dateNaissance|date('Y-m-d') : '' }}</td>
-                <td>{{ user.password }}</td>
-                <td>{{ user.role }}</td>
-                <td>{{ user.addresse }}</td>
-                <td>
-                    <a href="{{ path('user_show', {'idUser': user.idUser}) }}">show</a>
-                    <a href="{{ path('user_edit', {'idUser': user.idUser}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="9">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
 
-    <a href="{{ path('user_new') }}">Create new</a>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">IdUser</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prenom</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">DateNaissance</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Addresse</th>
+                        <a href="{{ path('tri') }}" class="accordion">Sort</a>
+
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.idUser }}</td>
+                            <td>{{ user.nom }}</td>
+                            <td>{{ user.prenom }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.dateNaissance ? user.dateNaissance|date('Y-m-d') : '' }}</td>
+                            <td>{{ user.password }}</td>
+                            <td>{{ user.role }}</td>
+                            <td>{{ user.addresse }}</td>
+                            <td>
+                                <a href="{{ path('user_new', {'idUser': user.idUser}) }}" class="btn btn-dark">Add</a>
+                                <a href="{{ path('user_show', {'idUser': user.idUser}) }}" class="btn btn-primary">Show</a>
+                                <a href="{{ path('user_edit', {'idUser': user.idUser}) }}" class="btn btn-success">Edit</a>
+                                <a href="{{ path('user_edit', {'idUser': user.idUser}) }}" class="btn btn-danger">Delete</a>
+
+                            </td>
+                        </tr>
+                    {% else %}
+
+                    {% endfor %}
+
+                    </td>
+
+                    </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

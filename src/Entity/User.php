@@ -159,5 +159,13 @@ class User
         return $this;
     }
 
+    /**
+     * @param int $idUser
+     */
+    public function setIdUser(int $idUser): void
+    {
+        $this->idUser = $idUser;
+    }
+
 
 }

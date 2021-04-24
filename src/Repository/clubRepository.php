@@ -47,4 +47,12 @@ class clubRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function search($term)
+    {
+        return $this->createQueryBuilder('club')
+            ->andWhere('club.nom LIKE :searchTerm')
+            ->setParameter('searchTerm', '%'.$term.'%')
+            ->getQuery()
+            ->execute();
+    }
 }

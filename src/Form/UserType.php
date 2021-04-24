@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,7 +18,16 @@ class UserType extends AbstractType
             ->add('email')
             ->add('dateNaissance')
             ->add('password')
-            ->add('role')
+            ->add('Role',ChoiceType::class,[
+                'label'=>'Role',
+                'placeholder'=>'choose type:',
+                'choices'=>[
+                    'Etudient'=>'Etudient',
+                    'Eleve'=>'Eleve',
+                    'Etablissement'=>'Etablissement',
+
+                ],
+            ])
             ->add('addresse')
         ;
     }
