@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Abonnement;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query;
 
 /**
  * @method Abonnement|null find($id, $lockMode = null, $lockVersion = null)
@@ -36,15 +37,19 @@ class AbonnementRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Abonnement
+       // /**
+    //  * @return Classe[] Returns an array of Classe objects
+    //  */
+    public function findOneBySomeField($idUser,$idClub)
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
+            ->andWhere('a.idUser = :idUser')
+            ->andWhere('a.idClub = :idClub')
+            ->setParameter('idUser', $idUser)
+            ->setParameter('idClub', $idClub)
             ->getQuery()
-            ->getOneOrNullResult()
+            ->getResult(Query::HYDRATE_ARRAY);
         ;
     }
-    */
+    
 }

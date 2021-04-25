@@ -31,11 +31,11 @@ class Abonnement
     private $date;
 
     /**
-     * @var \Abonnement
+     * @var \Club
      *
-     * @ORM\ManyToOne(targetEntity="Abonnement")
+     * @ORM\ManyToOne(targetEntity="Club")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ID_Club", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="ID_Club", referencedColumnName="ID")
      * })
      */
     private $idClub;
@@ -67,12 +67,12 @@ class Abonnement
         return $this;
     }
 
-    public function getIdClub(): ?self
+    public function getIdClub(): ?Club
     {
         return $this->idClub;
     }
 
-    public function setIdClub(?self $idClub): self
+    public function setIdClub(?Club $idClub): self
     {
         $this->idClub = $idClub;
 

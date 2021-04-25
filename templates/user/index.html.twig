@@ -3,7 +3,7 @@
 {% block title %}User index{% endblock %}
 
 {% block body %}
-    <a href="{{('login/login') }}">Logout</a>
+    <a href="{{ path('user_login') }}">Logout</a>
 <h1> {{ app.session.get('mavariable') }}</h1>
 
     <div class="container">

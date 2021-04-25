@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Club;
+use App\Entity\User;
+use App\Entity\Abonnement;
 use App\Form\ClubType;
 use App\Repository\clubRepository;
 //use Doctrine\DBAL\Types\TextType;
@@ -137,6 +139,29 @@ class ClubController extends Controller
         ]);
     }
 
+
+      /**
+     * @Route("/join_club/{idUser}", name="join_club", methods={"GET"})
+     */
+    public function join_club(int $idUser,Request $request): Response
+    {
+        $session = $request->getSession();
+        $abo=new Abonnement();
+        $foundClub=$this->getDoctrine()->getRepository(Club::class)->find($idUser);
+        $newPlaces=(int)$foundClub->getPlaces()-1;
+        $foundClub->setPlaces((string)$newPlaces);
+        $foundUser=$this->getDoctrine()->getRepository(User::class)->find($session->get('loggedUser')->getIdUser());
+        $abo->setIdUser($foundUser);
+        $abo->setIdClub($foundClub);
+        $abo->setDate(new \DateTime());
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($abo);
+        $entityManager->flush();
+        return $this->redirectToRoute('club_newindex',['idUser'=>$session->get('loggedUser')->getIdUser()]);
+
+
+    }
+
     /**
      * @Route("/{id}/edit", name="club_edit", methods={"GET","POST"})
      */
@@ -204,14 +229,34 @@ class ClubController extends Controller
             $allclubs=$clubRepository->findAll();
         }
 
+        
+        $session = $request->getSession();
+        foreach($allclubs as $club){
+            $length=sizeof($this->getDoctrine()->getRepository(Abonnement::class)->findOneBySomeField($session->get('loggedUser')->getIdUser(),$club->getId()));
+            if ( $length == 1 ) {
+                $jsonArray[] = array(
+                    'club' => $club,
+                    'joined' => true
+                );
+            }else{
+                $jsonArray[] = array(
+                    'club' => $club,
+                    'joined' => false
+                );
+            }
+    
+        }
+        
         $clubs=$this->get('knp_paginator')->paginate(
-            $allclubs,
+            $jsonArray,
             $request->query->getInt('page',1),
             5
         );
+        $session = $request->getSession();
         return $this->render('club/newindex.html.twig', [
             'clubs' => $clubs,
             'form' => $form->createView(),
+            'idUser'=>$session->get('loggedUser')->getIdUser()
 
         ]);
     }

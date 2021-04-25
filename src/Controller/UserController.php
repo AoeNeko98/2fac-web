@@ -72,7 +72,7 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/{idUser}", name="user_show", methods={"GET"})
+     * @Route("/showAll/{idUser}", name="user_show", methods={"GET"})
      */
     public function show(User $user): Response
     {
@@ -82,11 +82,13 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/login/{idUser}", name="user_login", methods={"GET","POST"})
+     * @Route("/login", name="user_login", methods={"GET","POST"})
      */
     public function login(Request $request, clubRepository $clubRepository, userRepository $UserRepository): Response
     {
+        
         $session = $request->getSession();
+     
         $session->clear();
         $user = new User();
         $form = $this->createFormBuilder($user)
@@ -106,7 +108,10 @@ class UserController extends Controller
                 );
             } else {
                 if (!$session->has('name')) {
+
                     $session->set('name', $user1->getNom());
+                    $session->set('loggedUser', $user1);
+                    $session->set('idUser', $user1->getIdUser());
                     $name = $session->get('name');
                     if ($user1->getRole() == "Admin") {
                         $user->setIdUser($user1->getIdUser());
@@ -204,4 +209,6 @@ class UserController extends Controller
             array('users' => $user, 'stat' => $p));
 
     }
+
+    
 }
