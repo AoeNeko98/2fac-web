@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Book1
  *
  * @ORM\Table(name="book1", indexes={@ORM\Index(name="jnk", columns={"user"}), @ORM\Index(name="bhn", columns={"categorie"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\BookRepository")
  */
 class Book1
 {
@@ -30,7 +30,7 @@ class Book1
     /**
 
      * @ORM\Column(name="nom", type="string", length=255,nullable=false)
-     * @Assert\Length(min=3,max=16,minMessage="invalid name")
+     * @Assert\Length(min=3,max=255,minMessage="invalid name")
      * @Assert\NotBlank(message=" please insert a name")
      *
      */
@@ -63,7 +63,6 @@ class Book1
      *
      * @Assert\NotBlank(message="please choose an image")
      * @Assert\Length(min=1,max=255,minMessage="invalid discription")
-     * @Assert\IsNull(message="please choose an image")
      * @ORM\Column(name="image", type="string", length=255, nullable=false)
      */
     private $image;

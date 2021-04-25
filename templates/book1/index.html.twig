@@ -3,44 +3,494 @@
 {% block title %}Book1 index{% endblock %}
 
 {% block body %}
-    <h1>Book1 index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nom</th>
+    <!--Full width header Start-->
+    <div class="full-width-header">
+
+        <div id="loader" class="loader">
+            <div class="spinner"></div>
+        </div>
+        <header id="rs-header" class="rs-header">
+            <!-- Menu Start -->
+            <div class="menu-area menu-sticky">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="logo-area">
+                                <a href=""><img src="{{asset('assets/images/logo 2fac.png ')}}" alt="logo"></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 text-right">
+                            <div class="rs-menu-area">
+                                <div class="main-menu">
+                                    <div class="mobile-menu">
+                                        <a class="rs-menu-toggle">
+                                            <i class="fa fa-bars"></i>
+                                        </a>
+                                    </div>
+                                    <nav class="rs-menu pr-65">
+                                        <ul class="nav-menu">
+                                            <li class="rs-mega-menu mega-rs menu-item-has-children current-menu-item"> <a href="#">Home</a>
+                                                <ul class="mega-menu">
+                                                    <li class="mega-menu-container">
+                                                        <div class="mega-menu-innner">
+                                                            <div class="single-megamenu">
+                                                                <ul class="sub-menu">
+                                                                    <li class="menu-title">Home Multipage</li>
+
+                                                                </ul>
+                                                            </div>
+                                                            <div class="single-megamenu">
+                                                                <ul class="sub-menu">
+                                                                    <li class="menu-title">Home Multipage</li>
+
+                                                                </ul>
+                                                            </div>
+                                                            <div class="single-megamenu">
+                                                                <ul class="sub-menu last-sub-menu">
+                                                                    <li class="menu-title">Home Onepage</li>
+
+                                                                </ul>
+                                                            </div>
+                                                            <div class="single-megamenu">
+                                                                <ul class="sub-menu last-sub-menu">
+                                                                    <li class="menu-title">Home Onepage</li>
+
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul> <!-- //.mega-menu -->
+                                            </li>
+
+                                            <li class="menu-item-has-children">
+                                                <a href="#">Pages</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="">About Us</a></li>
+                                                    <li class="menu-item-has-children">
+                                                        <a href="#">Services</a>
+                                                        <ul class="sub-menu">
+                                                            <li><a href="">Services 1</a> </li>
+                                                            <li class="last-item"><a href="">Services 2</a> </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="">Services Single</a></li>
+                                                    <li class="menu-item-has-children">
+                                                        <a href="#">Our Peoples</a>
+                                                        <ul class="sub-menu">
+
+                                                        </ul>
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+
+                                            <li class="menu-item-has-children">
+                                                <a href="#">Bibliotheque</a>
+                                                <ul class="sub-menu">
+
+                                                    <li class="last-item menu-item-has-children">
+                                                        <a href="{{ path('book1_mybib') }}">Ma Bibliotheque</a>
+                                                        <ul class="sub-menu">
+
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                            <li class="menu-item-has-children">
+                                                <a href="#">Blog</a>
+                                                <ul class="sub-menu">
+                                                    <li class="last-item"><a href="">Contact 2</a></li>
+
+                                                </ul>
+                                            </li>
+
+                                            <li class="menu-item-has-children">
+                                                <a href="#">Shop</a>
+                                                <ul class="sub-menu">
+                                                    <li class="last-item"><a href="">Contact 2</a></li>
+                                                </ul>
+                                            </li>
+
+                                            <li class="menu-item-has-children">
+                                                <a href="#">Contact</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="">Contact 1</a></li>
+                                                    <li class="last-item"><a href="">Contact 2</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul> <!-- //.nav-menu -->
+                                    </nav>
+                                </div> <!-- //.main-menu -->
+                                <div class="expand-btn-inner">
+                                    <ul>
+                                        <li class="search-parent">
+                                            <a class="hidden-xs rs-search" data-target=".search-modal" data-toggle="modal" href="#">
+                                                <i class="flaticon-search"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a id="nav-expander" class="humburger nav-expander" href="#">
+                                                <span class="dot1"></span>
+                                                <span class="dot2"></span>
+                                                <span class="dot3"></span>
+                                                <span class="dot4"></span>
+                                                <span class="dot5"></span>
+                                                <span class="dot6"></span>
+                                                <span class="dot7"></span>
+                                                <span class="dot8"></span>
+                                                <span class="dot9"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Menu End -->
+            <!-- Canvas Menu start -->
+            <nav class="right_menu_togle hidden-md">
+                <div class="close-btn">
+                        <span id="nav-close" class="humburger">
+                            <span class="dot1"></span>
+                            <span class="dot2"></span>
+                            <span class="dot3"></span>
+                            <span class="dot4"></span>
+                            <span class="dot5"></span>
+                            <span class="dot6"></span>
+                            <span class="dot7"></span>
+                            <span class="dot8"></span>
+                            <span class="dot9"></span>
+                        </span>
+                </div>
+                <div class="canvas-logo">
+                    <a href=""><img src="{{ asset('assets/images/logo 2fac.png') }}" alt="logo"></a>
+                </div>
+                <div class="offcanvas-text">
+                    <p>Consectetur adipiscing elit. Duis at dictum risus, non suscip it arcu. Quisque aliquam posuere tortor aliquam posuere tortor develop database.</p>
+                </div>
+                <div class="canvas-contact">
+                    <ul class="contact">
+                        <li><i class="flaticon-location"></i> 374 William S Canning Blvd, Fall River MA 2721, USA</li>
+                        <li><i class="flaticon-call"></i><a href="tel:+880155-69569">(+880)155-69569</a></li>
+                        <li><i class="flaticon-email"></i><a href="mailto:support@rstheme.com">support@rstheme.com</a></li>
+                        <li><i class="flaticon-clock"></i>10:00 - 17:00</li>
+                    </ul>
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- Canvas Menu end -->
+        </header>
+    </div>
+    <div class="rs-shop pt-100 pb-100 md-pt-80 md-pb-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row y-middle mb-60 md-mb-50">
+                        <div class="col-sm-6 col-12 xs-mb-30">
+                            <div class="select-option" >
+                                <select class="from-control" >
+                                    <option value="def">Default sorting</option>
+                                    <option value='categorie'>Sort par categories</option>
+                                    <option value='prix'>Sort par prix</option>
+                                    <option value='type'>Sort par Types</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="mb-0">
+                            <div class="input-group">
+                                <div class="form-outline">
+                                    <input type="search" id="search" class="form-control">
+                                    <label class="form-label" for="form1">Search</label>
+                                </div>
+                                <button type="button" class="btn btn-primary">
+                                    <i class="flaticon-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="allBooks">
+                        {% for book1 in book1s %}
+                            <div class="col-lg-5 col-sm-6 mb-73 md-mb-43">
+                                <div class="card" style="width: 18rem;">
+                                    <img class="card-img-top" src="{{ asset('/assets/images/' ~book1.image) }}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ book1.nom }}</h5>
+                                        <p class="card-text">Categorie:{{ book1.categorie.nom }} <br>Par {{ book1.user.nom }}</p>
+                                        <a href="{{ path('book1_show', {'id': book1.id}) }}" class="btn btn-primary">Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% else %}
+                            <tr>
+                                <td colspan="8">no records found</td>
+                            </tr>
+                        {% endfor %}
+                    </div>
+                    <div  id="filtred" >
+                    </div>
+                </div>
+
+                <div class="col-lg-4 pl-35 md-pl-15 md-mb-40 md-order-first">
+                    <div class="sidebar-grid sidebar-categories shadow mb-50">
+                        <div class="sidebar-title">
+                            <h3 class="title semi-bold mb-20">Types</h3>
+                        </div>
+<script>
+    var ty=[];
+    var nty=0;
+    function checkTypes(val,idi){
+
+        if ($(idi).is(':checked')){
+            if(jQuery.inArray(val,ty)==-1) {
+                ty.push(val);
+                nty+=1;
+            }
+        }else {
+            if (jQuery.inArray(val, ty) !== -1) {
+                ty.splice(ty.indexOf(val), 1);
+                nty -= 1;
+            }
+        }
+        console.log(ty)
+    }
+</script>
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="btn-check" id="btn-check-1"  onchange="checkTypes('Vendre','#btn-check-1')">
+                                <label class="btn btn-outline-primary" for="btn-check-1">Vendre</label><br>
+                                <input type="checkbox" class="btn-check" id="btn-check-2"  onchange="checkTypes('Demande','#btn-check-2')">
+                                <label class="btn btn-outline-primary" for="btn-check-2">Demande</label><br>
+                                <input type="checkbox" class="btn-check" id="btn-check-3" onchange="checkTypes('Echange','#btn-check-3')">
+                                <label class="btn btn-outline-primary" for="btn-check-3">Echange</label><br>
+                            </div>
+
+                    </div>
+                    <div class="sidebar-grid sidebar-price-filter shadow mb-50">
+                        <div class="sidebar-title">
+                            <h3 class="title semi-bold mb-20">Filter by price</h3>
+                        </div>
+                        <div class="slidecontainer">
+                            <input type="range" min="0" max="{{ maxprix }}" value="{{ maxprix }}" step="1" class="slider" id="myrange">
+                            <div class="bottom-part">
+
+                                <p class="rangevalue mb-0">Price: 0 DT — <span id="rangevalue"></span> DT</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-grid sidebar-tags shadow">
+                        <div class="sidebar-title">
+                            <h3 class="title semi-bold mb-20">Filter Par Categorie </h3>
+                        </div>
+
+                        <script>
+                            var cata=[];
+                            var ncata=0;
+                            function checkCategories(){
+
+                                {% for cate in cat %}
+                                $(document).ready(function (){
+                                    if ($("#{{ cate.id }}").is(':checked')){
+                                        if(jQuery.inArray({{ cate.id }},cata)==-1) {
+                                            cata.push({{ cate.id }});
+                                            ncata+=1;
+                                        }
+                                    }else{
+                                        if(jQuery.inArray({{ cate.id }},cata)!==-1) {
+                                            cata.splice(cata.indexOf({{ cate.id }}),1);
+                                            ncata-=1;
+                                        }
+
+                                    }
+
+
+                                });
+                                {% endfor %}
 
 
 
-                <th>Categorie</th>
-                <th>User</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for book1 in book1s %}
-            <tr>
+                                console.log(cata)
 
-                <td>{{ book1.nom }}</td>
-                <td>{{ book1.categorie.nom }}</td>
-                <td>{{ book1.user.nom }}</td>
+                            };
+
+                        </script>
+                        <div class="tagcloud">
+                            {% for cate in cat %}
+                                <input type="checkbox" class="btn-check" id="{{ cate.id }}" onchange="checkCategories()" >
+                                <label class="btn btn-outline-primary" for="{{ cate.id }}">{{ cate.nom }}</label><br>
+
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 
-                <td>
-                    <a href="{{ path('book1_show', {'id': book1.id}) }}">show</a>
-                    <a href="{{ path('book1_edit', {'id': book1.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+{% endblock %}
+{% block js %}
+    <script>
+        $(document).ready(function (){
+            $("select.from-control").change(function (){
+                var selectedSort =$(this).children("option:selected").val();
+                var search =$('#search').val();
+                var range =$('#myrange').val();
+                var DATA  =  {'sortBy' : selectedSort,'search':search, 'range':range,'cate':cata,'ncata':ncata, 'ty':ty, 'nty':nty };
+                console.log(DATA);
+                $.ajax({type:"POST",
+                        url: "{{ path('book1_index')}}"  ,
+                        data: DATA,
+                        success: function (data){
+                            console.log(data);
+                            $("#allBooks").hide();
+                            $("#filtred2").remove();
+                            $("#filtred").html("<div id='filtred2' class=\"row\"></div>")
+                            $.each(data, function (k,el) {
+                                $("#filtred2").append(
+                                    "<div class='col-md-4'>"+
+                                    "<div class='card' style='width: 18rem;'>"+
+                                    " <img class='card-img-top' src='/assets/images/"+el.image+"' alt='Card image cap'>"+
+                                    "<div class='card-body'>"+
+                                    " <h5 class='card-title'>"+el.nom+"</h5>"+
+                                    " <p class='card-text'>Categorie:"+ el.categorie.nom +" <br>Par "+ el.user.nom +"</p>"+
+                                    "  <a href='/book1/"+ el.id +"/show'class='btn btn-primary'>Details</a>"+
+                                    " </div>"+
+                                    "</div>"
 
-    <a href="{{ path('book1_new') }}">Create new</a>
+                                );
+                            })
+                        }
+                    }
+                );
 
+            });
+
+        });
+    </script>
+    <script>
+        $(document).ready(function (){
+            $('#search').keyup(function(){
+                var selectedSort =$("select.from-control").children("option:selected").val();
+                var search =$('#search').val();
+                var range =$('#myrange').val();
+                var DATA  =  {'sortBy' : selectedSort,'search':search, 'range':range, 'cate':cata,'ncata':ncata, 'ty':ty, 'nty':nty};
+                console.log(DATA);
+                $.ajax({type:"POST",
+                        url: "{{ path('book1_index')}}"  ,
+                        data: DATA,
+                        success: function (data){
+                            console.log(data);
+                            $("#allBooks").hide();
+                            $("#filtred2").remove();
+                            $("#filtred").html("<div id='filtred2' class=\"row\"></div>")
+                            $.each(data, function (k,el) {
+                                $("#filtred2").append(
+                                    "<div class='col-md-4'>"+
+                                    "<div class='card' style='width: 18rem;'>"+
+                                    " <img class='card-img-top' src='/assets/images/"+el.image+"' alt='Card image cap'>"+
+                                    "<div class='card-body'>"+
+                                    " <h5 class='card-title'>"+el.nom+"</h5>"+
+                                    " <p class='card-text'>Categorie:"+ el.categorie.nom +" <br>Par "+ el.user.nom +"</p>"+
+                                    "  <a href='/book1/"+ el.id +"/show'class='btn btn-primary'>Details</a>"+
+                                    " </div>"+
+                                    "</div>"
+
+                                );
+                            })
+                        }
+                    }
+                );
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function (){
+            $("#myrange").change(function (){
+                var range =$('#myrange').val();
+                var selectedSort =$("select.from-control").children("option:selected").val();
+                var search =$('#search').val();
+                var DATA  =  {'sortBy' : selectedSort,'search':search, 'range':range,'cate':cata,'ncata':ncata, 'ty':ty, 'nty':nty };
+                console.log(DATA);
+                $.ajax({type:"POST",
+                        url: "{{ path('book1_index')}}"  ,
+                        data: DATA,
+                        success: function (data){
+                            console.log(data);
+                            $("#allBooks").hide();
+                            $("#filtred2").remove();
+                            $("#filtred").html("<div id='filtred2' class=\"row\"></div>")
+                            $.each(data, function (k,el) {
+                                $("#filtred2").append(
+                                    "<div class='col-md-4'>"+
+                                    "<div class='card' style='width: 18rem;'>"+
+                                    " <img class='card-img-top' src='/assets/images/"+el.image+"' alt='Card image cap'>"+
+                                    "<div class='card-body'>"+
+                                    " <h5 class='card-title'>"+el.nom+"</h5>"+
+                                    " <p class='card-text'>Categorie:"+ el.categorie.nom +" <br>Par "+ el.user.nom +"</p>"+
+                                    "  <a href='/book1/"+ el.id +"/show'class='btn btn-primary'>Details</a>"+
+                                    " </div>"+
+                                    "</div>"
+
+                                );
+                            })
+                        }
+                    }
+                );
+
+            });
+
+        });
+    </script>
+    <script>
+        $(document).ready(function (){
+            $("input.btn-check").change(function (){
+                var range =$('#myrange').val();
+                var selectedSort =$("select.from-control").children("option:selected").val();
+                var search =$('#search').val();
+                var DATA  =  {'sortBy' : selectedSort,'search':search, 'range':range,'cate':cata,'ncata':ncata , 'ty':ty, 'nty':nty};
+                console.log(DATA);
+                $.ajax({type:"POST",
+                        url: "{{ path('book1_index')}}"  ,
+                        data: DATA,
+                        success: function (data){
+                            console.log(data);
+                            $("#allBooks").hide();
+                            $("#filtred2").remove();
+                            $("#filtred").html("<div id='filtred2' class=\"row\"></div>")
+                            $.each(data, function (k,el) {
+                                $("#filtred2").append(
+                                    "<div class='col-md-4'>"+
+                                    "<div class='card' style='width: 18rem;'>"+
+                                    " <img class='card-img-top' src='/assets/images/"+el.image+"' alt='Card image cap'>"+
+                                    "<div class='card-body'>"+
+                                    " <h5 class='card-title'>"+el.nom+"</h5>"+
+                                    " <p class='card-text'>Categorie:"+ el.categorie.nom +" <br>Par "+ el.user.nom +"</p>"+
+                                    "  <a href='/book1/"+ el.id +"/show'class='btn btn-primary'>Details</a>"+
+                                    " </div>"+
+                                    "</div>"
+
+                                );
+                            })
+                        }
+                    }
+                );
+
+            });
+
+        });
+    </script>
 
 
 {% endblock %}

@@ -35,5 +35,34 @@ class Eleve
      */
     private $bacType;
 
+    public function getIdUser(): ?int
+    {
+        return $this->idUser;
+    }
+
+    public function getScore(): ?float
+    {
+        return $this->score;
+    }
+
+    public function setScore(?float $score): self
+    {
+        $this->score = $score;
+
+        return $this;
+    }
+
+    public function getBacType(): ?string
+    {
+        return $this->bacType;
+    }
+
+    public function setBacType(?string $bacType): self
+    {
+        $this->bacType = $bacType;
+
+        return $this;
+    }
+
 
 }

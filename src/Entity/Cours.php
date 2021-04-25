@@ -49,5 +49,58 @@ class Cours
      */
     private $idCours;
 
+    public function getIdEtab(): ?int
+    {
+        return $this->idEtab;
+    }
+
+    public function setIdEtab(?int $idEtab): self
+    {
+        $this->idEtab = $idEtab;
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(?string $nom): self
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getDiscription(): ?string
+    {
+        return $this->discription;
+    }
+
+    public function setDiscription(?string $discription): self
+    {
+        $this->discription = $discription;
+
+        return $this;
+    }
+
+    public function getIdSpec(): ?int
+    {
+        return $this->idSpec;
+    }
+
+    public function setIdSpec(int $idSpec): self
+    {
+        $this->idSpec = $idSpec;
+
+        return $this;
+    }
+
+    public function getIdCours(): ?int
+    {
+        return $this->idCours;
+    }
+
 
 }

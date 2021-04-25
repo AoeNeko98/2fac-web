@@ -28,9 +28,9 @@ class Book1Type extends AbstractType
                 'label'=>'Type',
                 'placeholder'=>'choose type:',
                 'choices'=>[
-                    'Vendre'=>1,
-                    'Demande'=>2,
-                    'Echange'=>3,
+                    'Vendre'=>'Vendre',
+                    'Demande'=>'Demande',
+                    'Echange'=>'Echange',
                 ],
 
 

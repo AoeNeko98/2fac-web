@@ -27,7 +27,7 @@
                                 <div class="sub-title primary">{{ book1.user.nom }}</div>
 
                                 <span class="skillbar-title">Prix</span>
-                                <div class="sub-title primary">{{ book1.prix }}</div>
+                                <div class="sub-title primary">{{ book1.prix }} DT</div>
 
                                 <span class="skillbar-title">ISBN</span>
                                 <div class="sub-title primary">{{ book1.isbn }}</div>
@@ -37,7 +37,8 @@
                                 <div class="sub-title primary">{{ book1.description}}</div>
                                 <div class="btn-group mt-60">
                                     <a class="readon" href="{{ path('book1_index') }}" >Back to list</a>
-                                    <a style="margin-left: 10px">{{ include('book1/_delete_form.html.twig') }}</a>
+                                    <a class="readon" style="margin-left: 10px" href="{{ path('book1_mybib') }}" >Back to my list</a>
+
                                 </div>
 
 
