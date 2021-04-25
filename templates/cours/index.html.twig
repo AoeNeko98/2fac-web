@@ -1,0 +1,105 @@
+{% extends 'basejdida.html.twig' %}
+
+{% block title %}Mes Cours {% endblock %}
+
+{% block test %}
+    <li><a href="{{ path("etablissement_edit",{'id':etabli.id }) }}">Modifier Votre compte</a> </li>
+    <li><a href="{{ path("cours_index",{'id_Etab':etabli.id}) }}">Mes cours</a> </li>
+    <li><a href="{{ path("article_profile",{'id':etabli.id}) }}">Mon Forum</a></li>
+    <li><a href="{{ path("article",{'id':id}) }}">Forum</a></li>
+    <li><a href="{{ path("speciality_index",{'id':etabli.id}) }}">Mes Specialitées</a></li>
+
+{% endblock %}
+
+{% block body %}
+    {% set avg=0 %}
+    {% set i=0 %}
+    {% set tot=0 %}
+    {% set ratings=0 %}
+    <h1>Mes Cours </h1>
+        <form method="post" action="{{ path('rechercheetab') }}">
+            <input type="text" name="recherche">
+
+            <input type="submit" value="Recherche">
+            <input name="id_etab"  value={{ id_Etab }} hidden >
+        </form>
+        <form method="post" action="{{ path("cours_index",{'id_Etab':id_Etab}) }}">
+            <input type="submit" value="Show all">
+        </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Discription</th>
+                <th>Nom du specialité</th>
+                <th>Cours rate</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cour in cours   %}
+            {% if cour.id.id == id_Etab %}
+            <tr>
+                <td>{{ cour.nom }}</td>
+                <td>{{ cour.discription }}</td>
+                <td>{{ cour.idspec.nomSp }}</td>
+                {% for r in rates %}
+                    {% if  r.getIdCours == cour.getIdCours %}
+                        {% set i=i+1 %}
+                        {% set tot=tot+r.rate %}
+                        {% set avg=tot/i %}
+                    {% endif %}
+                {% endfor %}
+
+                <td>{{ avg }} </td>
+                {% set avg=0 %}
+                {% set i=0 %}
+                {% set tot=0 %}
+                <td>
+
+                    <a href="{{ path('cours_edit', {'idCours': cour.idCours}) }}">edit</a>
+                </td>
+                <td>   <a href="{{ asset('http://localhost:7882/piweb/2fac-web/public/pidevpdf/'~cour.Cours) }}" target="_blank" class="btn btn-success">Cours</a></td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('cours_new',{'id_Etab':id_Etab}) }}">Create new</a>
+    <h1>Tous les Cours </h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Discription</th>
+            <th>Nom du specialité</th>
+            <th>Nom etab</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for cour in cours %}
+                <tr>
+                    <td>{{ cour.nom }}</td>
+                    <td>{{ cour.discription }}</td>
+                    <td>{{ cour.idspec.nomSp }}</td>
+                    <td>{{ cour.id.nom }}</td>
+                    {% for r in rates %}
+                        {% if  r.getIdCours == cour.getIdCours %}
+                            {% set i=i+1 %}
+                            {% set tot=tot+r.rate %}
+                            {% set avg=tot/i %}
+                        {% endif %}
+                    {% endfor %}
+
+                    <td>{{ avg }} </td>
+                    {% set avg=0 %}
+                    {% set i=0 %}
+                    {% set tot=0 %}
+                    <td>   <a href="{{ asset('http://localhost:7882/piweb/2fac-web/public/pidevpdf/'~cour.Cours) }}" target="_blank" class="btn btn-success">Cours</a></td>
+                </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

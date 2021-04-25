@@ -27,9 +27,9 @@ class ScoreapproxController extends AbstractController
     }
 
     /**
-     * @Route("/new/{id}", name="scoreapprox_new", methods={"GET","POST"})
+     * @Route("/new/{id}/{idetab}", name="scoreapprox_new", methods={"GET","POST"})
      */
-    public function new(Request $request, Speciality $speciality): Response
+    public function new(Request $request, Speciality $speciality, $idetab): Response
     {
         $scoreapprox = new Scoreapprox();
         $scoreapprox->setSpeciality($speciality);
@@ -41,12 +41,13 @@ class ScoreapproxController extends AbstractController
             $entityManager->persist($scoreapprox);
             $entityManager->flush();
 
-            return $this->redirectToRoute('speciality_index');
+            return $this->redirectToRoute('speciality_index', ['id'=>$idetab] );
         }
 
         return $this->render('scoreapprox/new.html.twig', [
             'scoreapprox' => $scoreapprox,
             'form' => $form->createView(),
+            'id'=>$idetab
         ]);
     }
 

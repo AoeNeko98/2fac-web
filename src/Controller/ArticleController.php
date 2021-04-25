@@ -18,22 +18,23 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("/article/index", name="article")
+     * @Route("/article/index/{id}", name="article")
      */
-    public function index(): Response
+    public function index($id): Response
     {
         $repo =$this->getDoctrine()->getRepository(Article::class);
 
         $article = $repo->findAll();
         return $this->render('article/index.html.twig', [
             'controller_name' => 'ArticleController',
-            'articles' => $article
+            'articles' => $article,
+            'id'=>$id
         ]);
     }
     /**
-     * @Route("/article/show/{id}", name="article_show")
+     * @Route("/article/show/{id}/{idetab}", name="article_show")
      */
-    public function show(Article $article , Request $request): Response
+    public function show(Article $article , Request $request,$idetab): Response
     {
         $repo =$this->getDoctrine()->getRepository(User::class);
         $iduser=1;
@@ -67,6 +68,7 @@ class ArticleController extends AbstractController
             'controller_name' => 'ArticleController',
             'article' => $article,
             'form'=> $form->createView(),
+            'id'=>$idetab
         ]);
     }
 
@@ -97,7 +99,7 @@ class ArticleController extends AbstractController
             $entityManager->flush();
             return  $this->redirectToRoute('article_profile',['id'=>$etablissement->getId()]);
         }
-        dump($form);
+
 
 
 
@@ -105,28 +107,29 @@ class ArticleController extends AbstractController
             'controller_name' => 'ArticleController',
             'article'=>$article,
             'form'=> $form->createView(),
+            'id'=>$etablissement->getId()
 
         ]);
     }
     /**
      * @Route("/article/profile/{id}", name="article_profile")
      */
-    public function profile($id): Response
+    public function profile(Etablissement $etablissement): Response
     {
         $repo =$this->getDoctrine()->getRepository(Article::class);
 
-        $article = $repo->findAll();
+        $article = $repo->findBy(['Etablissement'=>$etablissement]);
         return $this->render('article/profile.html.twig', [
             'controller_name' => 'ArticleController',
             'articles' => $article,
-            'id'=>$id
+            'id'=>$etablissement->getId()
         ]);
     }
 
     /**
-     * @Route("/article/Edit/{id}", name="article_edit")
+     * @Route("/article/Edit/{id}/{idetab}", name="article_edit")
      */
-    public function Edit(Article $article, Request $request): Response
+    public function Edit(Article $article, Request $request,$idetab): Response
     {
         $article->setImage("");
         $form = $this->createForm(ArticleType::class,$article);
@@ -148,7 +151,7 @@ class ArticleController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager -> persist($article);
             $entityManager->flush();
-            return  $this->redirectToRoute('article_show',['id'=>$article->getId()]);
+            return  $this->redirectToRoute('article_show',['id'=>$article->getId(),'idetab'=>$idetab]);
         }
         dump($form);
 
@@ -158,14 +161,15 @@ class ArticleController extends AbstractController
             'controller_name' => 'ArticleController',
             'article'=>$article,
             'form'=> $form->createView(),
+            'id'=>$idetab
 
         ]);
     }
 
     /**
-     * @Route("/article/delete/{id}", name="article_delete", methods={"POST"})
+     * @Route("/article/delete/{id}/{idetab}", name="article_delete", methods={"POST"})
      */
-    public function delete(Request $request, Article $article): Response
+    public function delete(Request $request, Article $article,$idetab): Response
     {
         if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -173,7 +177,7 @@ class ArticleController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('article_profile');
+        return $this->redirectToRoute('article_profile',['id'=>$idetab]);
     }
 
 }

@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Etablissement
 {
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -45,7 +46,7 @@ class Etablissement
     private $Num;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer" , nullable=true)
      */
     private $Etat;
 

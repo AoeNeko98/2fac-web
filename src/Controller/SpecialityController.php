@@ -17,10 +17,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class SpecialityController extends AbstractController
 {
     /**
-     * @Route("/", name="speciality_index", methods={"GET"})
+     * @Route("/{id}", name="speciality_index", methods={"GET"})
      */
-    public function index(SpecialityRepository $specialityRepository): Response
-    {   $id=1;
+    public function index(SpecialityRepository $specialityRepository, $id): Response
+    {
 
 
 
@@ -57,12 +57,13 @@ class SpecialityController extends AbstractController
             $entityManager->flush();
 
 
-            return $this->redirectToRoute('scoreapprox_new', ['id'=>$speciality->getId()]);
+            return $this->redirectToRoute('scoreapprox_new', ['id'=>$speciality->getId(),'idetab'=>$etablissement->getId()]);
         }
 
         return $this->render('speciality/new.html.twig', [
             'speciality' => $speciality,
             'form' => $form->createView(),
+            'id'=>$etablissement->getId()
         ]);
     }
 
@@ -77,9 +78,9 @@ class SpecialityController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="speciality_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit/{idetab}", name="speciality_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Speciality $speciality): Response
+    public function edit(Request $request, Speciality $speciality, $idetab): Response
     {
         $form = $this->createForm(SpecialityType::class, $speciality);
         $form->handleRequest($request);
@@ -87,26 +88,30 @@ class SpecialityController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('scoreapprox_new', ['id'=>$speciality->getId()]);
+            return $this->redirectToRoute('scoreapprox_new', ['id'=>$speciality->getId(),'idetab'=>$idetab]);
         }
 
         return $this->render('speciality/edit.html.twig', [
             'speciality' => $speciality,
             'form' => $form->createView(),
+            'id'=>$idetab
         ]);
     }
 
     /**
-     * @Route("/{id}", name="speciality_delete", methods={"POST"})
+     * @Route("/{id}/{idetab}", name="speciality_delete", methods={"POST"})
      */
-    public function delete(Request $request, Speciality $speciality): Response
+    public function delete(Request $request, Speciality $speciality, $idetab): Response
     {
         if ($this->isCsrfTokenValid('delete'.$speciality->getId(), $request->request->get('_token'))) {
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($speciality);
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('speciality_index');
+        return $this->redirectToRoute('speciality_index',[
+        'id'=>$idetab
+    ]);
     }
 }

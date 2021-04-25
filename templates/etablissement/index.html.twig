@@ -1,0 +1,15 @@
+{% extends 'basejdida.html.twig' %}
+
+{% block title %}Etablissement index{% endblock %}
+{% block test %}
+    <li><a href="{{ path("etablissement_edit",{'id':etabli.id }) }}">Modifier Votre compte</a> </li>
+    <li><a href="{{ path("cours_index",{'id_Etab':etabli.id}) }}">Mes cours</a> </li>
+    <li><a href="{{ path("article_profile",{'id':etabli.id}) }}">Mon Forum</a></li>
+    <li><a href="{{ path("article",{'id':id}) }}">Forum</a></li>
+    <li><a href="{{ path("speciality_index",{'id':etabli.id}) }}">Mes Specialitées</a></li>
+
+{% endblock %}
+{% block body %}
+
+<h1>Bienvenue {{ etabli.Nom }} Votre id est {{ etabli.id }}</h1>
+{% endblock %}
