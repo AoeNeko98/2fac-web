@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <body>
+    <form class="form-signin"></form>
+    <div class="center">
+        <div class="container">
+            <h2 class="form-signin-heading">Please login</h2>
+
+            <form method="post">
+                <div class="data">
+                    <label>Email </label>
+                    {{ form_widget(form.Email) }}
+                </div>
+                <div class="data">
+                    <label>Password</label>
+                    {{ form_widget(form.password) }}
+                </div>
+                <div class="forgot-pass">
+                    <a href="#">Forgot Password?</a></div>
+                <div class="btn">
+                    <div class="inner">
+                    </div>
+                    <button type="submit">login</button>
+                </div>
+                <div class="signup-link">
+                    Not a member? <a href="../new">Signup now</a></div>
+
+            </form>
+        </div>
+    </div>
+    </body>
+{% endblock %}

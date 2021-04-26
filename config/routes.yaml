@@ -1,6 +1,10 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+#app:
+#    resource: '@AppBundle/Controller/'
+#    type: annotation
 kms_froala_editor:
   resource: '@KMSFroalaEditorBundle/Resources/config/routing.yml'
   prefix:   /froalaeditor

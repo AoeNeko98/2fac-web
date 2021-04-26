@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    <a href="{{('login/login') }}">Logout</a>
+<h1> {{ app.session.get('mavariable') }}</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">IdUser</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prenom</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">DateNaissance</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Addresse</th>
+                        <a href="{{ path('tri' ) }}" class="accordion">Sort</a>
+
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.Id }}</td>
+                            <td>{{ user.nom }}</td>
+                            <td>{{ user.prenom }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.dateNaissance ? user.dateNaissance|date('Y-m-d') : '' }}</td>
+                            <td>{{ user.password }}</td>
+                            <td>{{ user.role }}</td>
+                            <td>{{ user.adresse }}</td>
+                            <td>
+                                <a href="{{ path('user_new', {'idUser': user.Id}) }}" class="btn btn-dark">Add</a>
+                                <a href="{{ path('user_show', {'id': user.Id}) }}" class="btn btn-primary">Show</a>
+                                <a href="{{ path('user_edit', {'id': user.Id}) }}" class="btn btn-success">Edit</a>
+                                <a href="{{ path('user_edit', {'id': user.Id}) }}" class="btn btn-danger">Delete</a>
+
+                            </td>
+                        </tr>
+                    {% else %}
+
+                    {% endfor %}
+
+                    </td>
+
+                    </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

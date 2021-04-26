@@ -47,4 +47,28 @@ class UserRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function search($term)
+    {
+        return $this->createQueryBuilder('user')
+            ->andWhere('user.name = :use')
+            ->setParameter('usu', '%'.$term.'%')
+            ->getQuery()
+            ->execute();
+    }
+    public function listOrderByName()
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.nom', 'DESC')
+            ->getQuery()->getResult();
+    }
+
+    public function getCustomInformations()
+    {
+        $rawSql = "SELECT p.nom,COUNT(p.id_User) as nbp FROM user p GROUP BY nom ";
+
+        $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
+        $stmt->execute([]);
+
+        return $stmt->fetchAll();
+    }
 }

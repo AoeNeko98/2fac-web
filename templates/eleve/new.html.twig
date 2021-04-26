@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1>Create new Eleve</h1>
-
+    <a href="{{ path('user_login') }}">logout</a>
     {{ include('eleve/_form.html.twig') }}
 
     <a href="{{ path('eleve_index') }}">back to list</a>

@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    <a href="{{ ('../../login/login') }}">Logout</a>
+    <a href="{{ path('etablissement_index1' , {'id': id}) }}">Acceuil</a>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <a href="{{ path('club_new', {'id':id}) }}">New</a>
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button class="btn btn-primary" >{{ button_label|default('Rechercher') }}</button>
+                {{ form_end(form) }}
+
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+
+                        <th scope="col">Nom</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Domaine</th>
+                        <th scope="col">Places</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">actions</th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for club in clubs %}
+                        <tr>
+                            <td>{{ club.nom }}</td>
+                            <td>{{ club.description }}</td>
+                            <td>{{ club.domaine }}</td>
+                            <td>{{ club.places }}</td>
+                            <td>{{ club.id }}</td>
+                            <td>
+
+                                <a href="{{ path('club_show', {'id': club.id , 'idetab':id}) }}" class="btn btn-primary">show</a>
+                                <a href="{{ path('club_edit', {'id': club.id , 'idetab':id}) }}" class="btn btn-success">edit</a>
+                                <a href="{{ path('club_list',{'id':id}) }}" class="btn btn-danger">PDF</a>
+
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                        </tr>
+                    {% endfor %}
+
+                    </td>
+
+                    </tr>
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <a href="{{ path('club_list',{'id':id}) }}">PDF</a>
+
+{% endblock %}

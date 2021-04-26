@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    <a  href="{{ path('user_login') }}">Logout</a>
+    <a href="{{ path('welcome_Etud',{'id':idUser}) }}">Acceuil</a>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button class="btn btn-primary" >{{ button_label|default('Rechercher') }}</button>
+                {{ form_end(form) }}
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+
+                        <th scope="col">Nom </th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Domaine</th>
+                        <th scope="col">Places</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">actions</th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for club in clubs %}
+                        <tr>
+                            <td>{{ club.club.nom }}</td>
+                            <td>{{ club.club.description }}</td>
+                            <td>{{ club.club.domaine }}</td>
+                            <td>{{ club.club.places }}</td>
+                            <td>{{ club.club.id }}</td>
+                            <td>
+                                {% if club.joined == false %}
+                                    <a href="{{ path('join_club', {'idUser': idUser,'id':club.club.id}) }}" class="btn btn-dark">Join</a>
+
+                                {% endif %}
+                                <a href="{{ path('club_show_user', {'id': club.club.id, 'idUser':idUser}) }}" class="btn btn-primary">show</a>
+
+
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                        </tr>
+                    {% endfor %}
+
+                    </td>
+
+                    </tr>
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

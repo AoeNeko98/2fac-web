@@ -24,6 +24,7 @@ class EtablissementController extends AbstractController
 {
     /**
      * @Route("/etab/{etab}", name="etablissement_index", methods={"GET","POST"})
+     * @Route("/etab/{id}", name="etablissement_index1", methods={"GET","POST"})
      *
      */
     public function index(EtablissementRepository $repository,Etablissement $etab): Response

@@ -5,9 +5,12 @@
     <li><a href="{{ path("etablissement_edit",{'id':etabli.id }) }}">Modifier Votre compte</a> </li>
     <li><a href="{{ path("cours_index",{'id_Etab':etabli.id}) }}">Mes cours</a> </li>
     <li><a href="{{ path("article_profile",{'id':etabli.id}) }}">Mon Forum</a></li>
-    <li><a href="{{ path("article",{'id':id}) }}">Forum</a></li>
+    <li><a href="{{ path("article",{'id':etabli.id}) }}">Forum</a></li>
     <li><a href="{{ path("speciality_index",{'id':etabli.id}) }}">Mes Specialitées</a></li>
 
+{% endblock %}
+{% block test1 %}
+    <li><a href="{{ path("club_index",{'id':etabli.id}) }}">Clubs</a></li>
 {% endblock %}
 {% block body %}
 

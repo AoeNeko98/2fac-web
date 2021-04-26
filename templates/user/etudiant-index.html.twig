@@ -1,0 +1,15 @@
+{% extends 'basejdida.html.twig' %}
+
+{% block title %}Etudiant Acceuil{% endblock %}
+{% block test %}
+    <li><a href="{{ path("user_edit",{'id':user.Id }) }}">Modifier Votre compte</a> </li>
+    <li><a href="{{ path("Consulter_user",{'id_User':user.Id}) }}">Mes cours</a> </li>
+    <li><a href="{{ path("Consulter_user",{'id_User':user.Id}) }}">bibliothèque</a></li>
+    <li><a href="{{ path("article",{'id':user.Id}) }}">Forum</a></li>
+    <li><a href="{{ path("club_newindex",{'idUser':user.Id}) }}">Clubs</a></li>
+
+{% endblock %}
+{% block body %}
+    <a href="{{ path('user_login') }}">logout</a>
+    <h1>Bienvenue {{ user.Nom }} Votre id est {{ user.id }}</h1>
+{% endblock %}

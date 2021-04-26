@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Club{% endblock %}
+
+{% block body %}
+    <h1>Join Club</h1>
+
+    {{ include('club/_form.html.twig') }}
+
+
+    <a href="{{ path('club_index',{'id':id}) }}">back to list</a>
+{% endblock %}
