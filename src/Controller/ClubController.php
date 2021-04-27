@@ -73,6 +73,7 @@ class ClubController extends Controller
         // Retrieve the HTML generated in our twig file
         $html = $this->renderView('club/listp.html.twig', [
             'clubs' => $clubs,
+            'id'=>$id
         ]);
 
         // Load HTML to Dompdf
@@ -90,7 +91,8 @@ class ClubController extends Controller
         // In this case, we want to write the file in the public directory
         $publicDirectory = $this->get('kernel')->getProjectDir() . '/public';
         // e.g /var/www/project/public/mypdf.pdf
-        $pdfFilepath =  $publicDirectory .'/newpdf.pdf';
+        $pdfFilepath =  $publicDirectory .'/uploads/'.md5(uniqid()) . '.' .'pdf';
+
 
         // Write file to the desired path
         file_put_contents($pdfFilepath, $output);
@@ -134,7 +136,7 @@ class ClubController extends Controller
 
     /**
      * @Route("/show/{id}/{idetab}", name="club_show", methods={"GET"})
-     * @Route("/show/{id}/{iduser}", name="club_show_user", methods={"GET"})
+     * @Route("/showetud/{id}/{iduser}", name="club_show_user", methods={"GET"})
      */
     public function show(Club $club , $idetab=null,$iduser=null): Response
     {

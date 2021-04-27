@@ -29,10 +29,13 @@
             </tr>
         </tbody>
     </table>
-
+    {% if id == null %}
+    <a href="{{ path('club_index',{'id':iduser}) }}">back to list</a>
+    {% else %}
     <a href="{{ path('club_index',{'id':id}) }}">back to list</a>
 
     <a href="{{ path('club_edit', {'id': club.id,'idetab':id}) }}">edit</a>
+    {% endif %}
 
     {{ include('club/_delete_form.html.twig') }}
 {% endblock %}

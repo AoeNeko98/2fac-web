@@ -222,5 +222,9 @@ class User
 
         return $this;
     }
+    public function __toString()
+    {
+        return  $this->getId().' '.$this->getNom().' '.$this->getAdresse().' '.$this->getEmail().' '.$this->getPassword().' '.$this->getPrenom().' '.$this->getRole().' '.$this->getCommentaires().' '.$this->getEleves();
+    }
 
 }

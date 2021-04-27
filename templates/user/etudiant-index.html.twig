@@ -5,7 +5,7 @@
     <li><a href="{{ path("user_edit",{'id':user.Id }) }}">Modifier Votre compte</a> </li>
     <li><a href="{{ path("Consulter_user",{'id_User':user.Id}) }}">Mes cours</a> </li>
     <li><a href="{{ path("Consulter_user",{'id_User':user.Id}) }}">bibliothèque</a></li>
-    <li><a href="{{ path("article",{'id':user.Id}) }}">Forum</a></li>
+    <li><a href="{{ path("article_etud",{'iduser':user.Id}) }}">Forum</a></li>
     <li><a href="{{ path("club_newindex",{'idUser':user.Id}) }}">Clubs</a></li>
 
 {% endblock %}

@@ -19,36 +19,37 @@ class ArticleController extends AbstractController
 {
     /**
      * @Route("/article/index/{id}", name="article")
+     * @Route ("/article/indexetud/{iduser}", name="article_etud")
      */
-    public function index($id): Response
+    public function index( $iduser=null,$id=null ): Response
     {
         $repo =$this->getDoctrine()->getRepository(Article::class);
-
+        dump($id);
+        dump($iduser);
         $article = $repo->findAll();
         return $this->render('article/index.html.twig', [
             'controller_name' => 'ArticleController',
             'articles' => $article,
-            'id'=>$id
+            'id'=>$id,
+            'iduser'=>$iduser
         ]);
     }
     /**
      * @Route("/article/show/{id}/{idetab}", name="article_show")
+     * @Route("/article/showetud/{id}/{iduser}", name="article_show_etud")
      */
-    public function show(Article $article , Request $request,$idetab): Response
+    public function show(Article $article , Request $request,$idetab=null,$iduser=null): Response
     {
         $repo =$this->getDoctrine()->getRepository(User::class);
-        $iduser=1;
 
-        $user=$repo->find($iduser);
+
+        $user=$repo->findOneBy(['id'=>$iduser]);
         if (!$user){
             $user=new User();
         }
+
+
         $comnt = new Commentaires();
-        $comnt->setCreatedAt(new \DateTime());
-        $comnt->setArticle($article);
-        $comnt->setAuthor($user);
-
-
 
         $form = $this->createForm(CommentaireType::class,$comnt);
         $repos =$this->getDoctrine()->getRepository(Article::class);
@@ -57,6 +58,9 @@ class ArticleController extends AbstractController
         if ( $form ->isSubmitted() && $form->isValid() ) {
 
 
+            $comnt->setCreatedAt(new \DateTime());
+            $comnt->setArticle($article);
+            $comnt->setAuthor($user);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager -> persist($comnt);
             $entityManager->flush();
@@ -68,7 +72,8 @@ class ArticleController extends AbstractController
             'controller_name' => 'ArticleController',
             'article' => $article,
             'form'=> $form->createView(),
-            'id'=>$idetab
+            'id'=>$idetab,
+            'iduser'=>$iduser
         ]);
     }
 

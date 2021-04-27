@@ -19,7 +19,7 @@ class Commentaires
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="commentaires")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="commentaires",cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $author;

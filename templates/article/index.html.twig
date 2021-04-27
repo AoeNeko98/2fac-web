@@ -1,14 +1,7 @@
 {% extends 'basejdida.html.twig' %}
 
 {% block title %} Forum {% endblock %}
-{% block test %}
-    <li><a href="{{ path("etablissement_edit",{'id':id }) }}">Modifier Votre compte</a> </li>
-    <li><a href="{{ path("cours_index",{'id_Etab':id}) }}">Mes cours</a> </li>
-    <li><a href="{{ path("article_profile",{'id':id}) }}">Mon Forum</a></li>
-    <li><a href="{{ path("article",{'id':id}) }}">Forum</a></li>
-    <li><a href="{{ path("speciality_index",{'id':id}) }}">Mes Specialitées</a></li>
 
-{% endblock %}
 
 {% block body %}
 {% for article in articles %}
@@ -24,7 +17,12 @@
             </div>
             </section>
         </div>
-        <a href="{{ path('article_show', {'id': article.id,'idetab':id})  }}" class="btn btn-info">Lire la suite</a>
+        {% if id==null %}
+            <a href="{{ path('article_show_etud', {'id': article.id,'iduser':iduser})  }}" class="btn btn-info">Lire la suite</a>
+
+        {% else %}
+            <a href="{{ path('article_show', {'id': article.id,'idetab':id})  }}" class="btn btn-info">Lire la suite</a>
+            {% endif %}
     </article>
 
 {% endfor%}
