@@ -9,11 +9,16 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
+ * User
+ *
+ *
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
 class User
 {
     /**
+     *@var int
+     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -21,46 +26,55 @@ class User
     private $id;
 
     /**
+     * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $Nom;
 
     /**
+     * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $Prenom;
 
     /**
+     * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $Email;
 
     /**
+     * @var \DateTime|null
      * @ORM\Column(type="date", nullable=true)
      */
     private $date_naissance;
 
     /**
+     * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $password;
 
     /**
+     * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $Role;
 
     /**
+     * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $adresse;
 
     /**
+
      * @ORM\OneToMany(targetEntity=Eleve::class, mappedBy="User")
      */
     private $eleves;
 
     /**
+     *
      * @ORM\OneToMany(targetEntity=Commentaires::class, mappedBy="author")
      */
     private $commentaires;

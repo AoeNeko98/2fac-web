@@ -1,0 +1,248 @@
+{% extends 'base_s.html.twig' %}
+
+{% block title %}Book1 index{% endblock %}
+
+{% block body %}
+
+    <!--Full width header Start-->
+    <div class="full-width-header">
+        <!-- Toolbar Start -->
+        <div class="toolbar-area hidden-md">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="toolbar-contact">
+                            <ul>
+                                <li><i class="flaticon-email"></i><a href="mailto:info@yourwebsite.com">support@rstheme.com</a></li>
+                                <li><i class="flaticon-call"></i><a href="tel:+123456789">(+123) 456789</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="toolbar-sl-share">
+                            <ul>
+                                <li class="opening"> <i class="flaticon-clock"></i> Mon - Fri: 9:00 am - 06.00pm / Closed on Weekends</li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Toolbar End -->
+        <div id="loader" class="loader">
+            <div class="spinner"></div>
+        </div>
+        <header id="rs-header" class="rs-header">
+            <!-- Menu Start -->
+            <div class="menu-area menu-sticky">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="logo-area">
+                                <a href=""><img src="{{asset('assets/images/logo 2fac.png ')}}" alt="logo"></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 text-right">
+                            <div class="rs-menu-area">
+                                <div class="main-menu">
+                                    <div class="mobile-menu">
+                                        <a class="rs-menu-toggle">
+                                            <i class="fa fa-bars"></i>
+                                        </a>
+                                    </div>
+                                    <nav class="rs-menu pr-65">
+                                        <ul class="nav-menu">
+                                            <li class="rs-mega-menu mega-rs menu-item-has-children current-menu-item"> <a href="#">Home</a>
+                                                <ul class="mega-menu">
+                                                    <li class="mega-menu-container">
+                                                        <div class="mega-menu-innner">
+                                                            <div class="single-megamenu">
+                                                                <ul class="sub-menu">
+                                                                    <li class="menu-title">Home Multipage</li>
+
+                                                                </ul>
+                                                            </div>
+                                                            <div class="single-megamenu">
+                                                                <ul class="sub-menu">
+                                                                    <li class="menu-title">Home Multipage</li>
+
+                                                                </ul>
+                                                            </div>
+                                                            <div class="single-megamenu">
+                                                                <ul class="sub-menu last-sub-menu">
+                                                                    <li class="menu-title">Home Onepage</li>
+
+                                                                </ul>
+                                                            </div>
+                                                            <div class="single-megamenu">
+                                                                <ul class="sub-menu last-sub-menu">
+                                                                    <li class="menu-title">Home Onepage</li>
+
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul> <!-- //.mega-menu -->
+                                            </li>
+
+                                            <li class="menu-item-has-children">
+                                                <a href="#">Pages</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="">About Us</a></li>
+                                                    <li class="menu-item-has-children">
+                                                        <a href="#">Services</a>
+                                                        <ul class="sub-menu">
+                                                            <li><a href="">Services 1</a> </li>
+                                                            <li class="last-item"><a href="">Services 2</a> </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="">Services Single</a></li>
+                                                    <li class="menu-item-has-children">
+                                                        <a href="#">Our Peoples</a>
+                                                        <ul class="sub-menu">
+
+                                                        </ul>
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+
+                                            <li class="menu-item-has-children">
+                                                <a href="#">Bibliotheque</a>
+                                                <ul class="sub-menu">
+
+                                                    <li class="last-item menu-item-has-children">
+                                                        <a href="">Ma Bibliotheque</a>
+                                                        <ul class="sub-menu">
+
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                            <li class="menu-item-has-children">
+                                                <a href="#">Blog</a>
+                                                <ul class="sub-menu">
+                                                    <li class="last-item"><a href="">Contact 2</a></li>
+
+                                                </ul>
+                                            </li>
+
+                                            <li class="menu-item-has-children">
+                                                <a href="#">Shop</a>
+                                                <ul class="sub-menu">
+                                                    <li class="last-item"><a href="">Contact 2</a></li>
+                                                </ul>
+                                            </li>
+
+                                            <li class="menu-item-has-children">
+                                                <a href="#">Contact</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="">Contact 1</a></li>
+                                                    <li class="last-item"><a href="">Contact 2</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul> <!-- //.nav-menu -->
+                                    </nav>
+                                </div> <!-- //.main-menu -->
+                                <div class="expand-btn-inner">
+                                    <ul>
+                                        <li class="search-parent">
+                                            <a class="hidden-xs rs-search" data-target=".search-modal" data-toggle="modal" href="#">
+                                                <i class="flaticon-search"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a id="nav-expander" class="humburger nav-expander" href="#">
+                                                <span class="dot1"></span>
+                                                <span class="dot2"></span>
+                                                <span class="dot3"></span>
+                                                <span class="dot4"></span>
+                                                <span class="dot5"></span>
+                                                <span class="dot6"></span>
+                                                <span class="dot7"></span>
+                                                <span class="dot8"></span>
+                                                <span class="dot9"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Menu End -->
+            <!-- Canvas Menu start -->
+            <nav class="right_menu_togle hidden-md">
+                <div class="close-btn">
+                        <span id="nav-close" class="humburger">
+                            <span class="dot1"></span>
+                            <span class="dot2"></span>
+                            <span class="dot3"></span>
+                            <span class="dot4"></span>
+                            <span class="dot5"></span>
+                            <span class="dot6"></span>
+                            <span class="dot7"></span>
+                            <span class="dot8"></span>
+                            <span class="dot9"></span>
+                        </span>
+                </div>
+                <div class="canvas-logo">
+                    <a href=""><img src="{{ asset('assets/images/logo 2fac.png') }}" alt="logo"></a>
+                </div>
+                <div class="offcanvas-text">
+                    <p>Consectetur adipiscing elit. Duis at dictum risus, non suscip it arcu. Quisque aliquam posuere tortor aliquam posuere tortor develop database.</p>
+                </div>
+                <div class="canvas-contact">
+                    <ul class="contact">
+                        <li><i class="flaticon-location"></i> 374 William S Canning Blvd, Fall River MA 2721, USA</li>
+                        <li><i class="flaticon-call"></i><a href="tel:+880155-69569">(+880)155-69569</a></li>
+                        <li><i class="flaticon-email"></i><a href="mailto:support@rstheme.com">support@rstheme.com</a></li>
+                        <li><i class="flaticon-clock"></i>10:00 - 17:00</li>
+                    </ul>
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- Canvas Menu end -->
+        </header>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            {% for book1 in book1s %}
+                {% if book1.user  == user %}
+                <div class="col-md-4">
+
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{ asset('/assets/images/' ~book1.image) }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ book1.nom }}</h5>
+                            <p class="card-text">Categorie:{{ book1.categorie.nom }} <br>Par {{ book1.user.nom }}</p>
+                            <div class="btn-group mt-60">
+                            <a href="{{ path('book1_show', {'id': book1.id,'iduser':id}) }}" class="btn btn-primary">Details</a>
+                            <a style="margin-left: 2px;">{{ include('book1/_delete_form.html.twig') }}</a>
+                                <a style="margin-left: 2px;" href="{{ path('book1_edit', {'id': book1.id}) }}" class="btn btn-primary">Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% else %}
+                <tr>
+                    <td colspan="8">no records found</td>
+                </tr>
+            {% endfor %}
+        </div></div>
+    <a class="readon" href="{{ path('book1_new',{'id':id}) }}">Create new</a>
+{% endblock %}

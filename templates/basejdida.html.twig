@@ -44,7 +44,7 @@
     <!-- spacing css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/rs-spacing.css') }}">
     <!-- style css -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}"> <!-- This stylesheet dynamically changed from style.less -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}"> <!-- This stylesheet dynamically changed from style.less -->
     <!-- responsive css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') }}">
     <!--[if lt IE 9]>
@@ -131,11 +131,13 @@
                                                                     <li><a href="index4.html">Consulting 2</a> </li>
 
                                                                     <li><a href="index4.html">Consulting 2</a> </li>
+
+                                                                {% endblock %}
+                                                                {% block test1 %}
+                                                                    <li><a href="index7.html">Saas</a> </li>
                                                                 {% endblock %}
                                                                 <li><a href="{{ path('etablissement_login') }}">Log out</a> </li>
-                                                                {% block test1 %}
-                                                                <li><a href="index7.html">Saas</a> </li>
-                                                                {% endblock %}
+
                                                                 <li><a href="index8.html">Human Resource</a> </li>
                                                             </ul>
                                                         </div>
@@ -1534,7 +1536,7 @@
 <!-- owl.carousel js -->
 <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
 <!-- Slick js -->
-<script src="{{ asset('/js/slick.min.js') }}"></script>
+<script src="{{ asset('assets/js/slick.min.js') }}"></script>
 <!-- isotope.pkgd.min js -->
 <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
 <!-- imagesloaded.pkgd.min js -->

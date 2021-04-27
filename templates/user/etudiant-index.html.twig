@@ -4,10 +4,13 @@
 {% block test %}
     <li><a href="{{ path("user_edit",{'id':user.Id }) }}">Modifier Votre compte</a> </li>
     <li><a href="{{ path("Consulter_user",{'id_User':user.Id}) }}">Mes cours</a> </li>
-    <li><a href="{{ path("Consulter_user",{'id_User':user.Id}) }}">bibliothèque</a></li>
+    <li><a href="{{ path("book1_index",{'id':user.Id}) }}">bibliothèque</a></li>
     <li><a href="{{ path("article_etud",{'iduser':user.Id}) }}">Forum</a></li>
     <li><a href="{{ path("club_newindex",{'idUser':user.Id}) }}">Clubs</a></li>
 
+{% endblock %}
+{% block test1 %}
+    <li><a href="{{ path("book1_mybib",{'id':user.Id}) }}">Ma bibliothèque</a></li>
 {% endblock %}
 {% block body %}
     <a href="{{ path('user_login') }}">logout</a>

@@ -1,0 +1,352 @@
+{% extends 'base_s.html.twig' %}
+
+{% block title %}Book1 index{% endblock %}
+
+{% block body %}
+
+
+            <!-- Canvas Menu start -->
+            <nav class="right_menu_togle hidden-md">
+                <div class="close-btn">
+                        <span id="nav-close" class="humburger">
+                            <span class="dot1"></span>
+                            <span class="dot2"></span>
+                            <span class="dot3"></span>
+                            <span class="dot4"></span>
+                            <span class="dot5"></span>
+                            <span class="dot6"></span>
+                            <span class="dot7"></span>
+                            <span class="dot8"></span>
+                            <span class="dot9"></span>
+                        </span>
+                </div>
+                <div class="canvas-logo">
+                    <a href=""><img src="{{ asset('assets/images/logo 2fac.png') }}" alt="logo"></a>
+                </div>
+                <div class="offcanvas-text">
+                    <p>Consectetur adipiscing elit. Duis at dictum risus, non suscip it arcu. Quisque aliquam posuere tortor aliquam posuere tortor develop database.</p>
+                </div>
+                <div class="canvas-contact">
+                    <ul class="contact">
+                        <li><i class="flaticon-location"></i> 374 William S Canning Blvd, Fall River MA 2721, USA</li>
+                        <li><i class="flaticon-call"></i><a href="tel:+880155-69569">(+880)155-69569</a></li>
+                        <li><i class="flaticon-email"></i><a href="mailto:support@rstheme.com">support@rstheme.com</a></li>
+                        <li><i class="flaticon-clock"></i>10:00 - 17:00</li>
+                    </ul>
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- Canvas Menu end -->
+        </header>
+    </div>
+    <div class="rs-shop pt-100 pb-100 md-pt-80 md-pb-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row y-middle mb-60 md-mb-50">
+                        <div class="col-sm-6 col-12 xs-mb-30">
+                            <div class="select-option" >
+                                <select class="from-control" >
+                                    <option value="def">Default sorting</option>
+                                    <option value='categorie'>Sort par categories</option>
+                                    <option value='prix'>Sort par prix</option>
+                                    <option value='type'>Sort par Types</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="mb-0">
+                            <div class="input-group">
+                                <div class="form-outline">
+                                    <input type="search" id="search" class="form-control" placeholder="search..">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="allBooks">
+                        {% for book1 in book1s %}
+                            <div class="col-lg-5 col-sm-6 mb-73 md-mb-43 bcard">
+                                <div class="card " >
+                                    <img class="card-img-top" style='height:460px; width: 331px;' src="{{ asset('/assets/images/' ~book1.image) }}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ book1.nom }}</h5>
+                                        <p class="card-text">Categorie:{{ book1.categorie.nom }} <br>Par {{ book1.user.Nom }}</p>
+                                        <a href="{{ path('book1_show', {'id': book1.id}) }}" class="btn btn-primary">Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% else %}
+                            <tr>
+                                <td colspan="8">no records found</td>
+                            </tr>
+                        {% endfor %}
+                    </div>
+                    <div  id="filtred" >
+                    </div>
+                </div>
+
+                <div class="col-lg-4 pl-35 md-pl-15 md-mb-40 md-order-first">
+                    <div class="sidebar-grid sidebar-categories shadow mb-50">
+                        <div class="sidebar-title">
+                            <h3 class="title semi-bold mb-20">Types</h3>
+                        </div>
+<script>
+    var ty=[];
+    var nty=0;
+    function checkTypes(val,idi){
+
+        if ($(idi).is(':checked')){
+            if(jQuery.inArray(val,ty)==-1) {
+                ty.push(val);
+                nty+=1;
+            }
+        }else {
+            if (jQuery.inArray(val, ty) !== -1) {
+                ty.splice(ty.indexOf(val), 1);
+                nty -= 1;
+            }
+        }
+        console.log(ty)
+    }
+</script>
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="btn-check" id="btn-check-1"  onchange="checkTypes('Vendre','#btn-check-1')">
+                                <label class="btn btn-outline-primary" for="btn-check-1">Vendre</label><br>
+                                <input type="checkbox" class="btn-check" id="btn-check-2"  onchange="checkTypes('Demande','#btn-check-2')">
+                                <label class="btn btn-outline-primary" for="btn-check-2">Demande</label><br>
+                                <input type="checkbox" class="btn-check" id="btn-check-3" onchange="checkTypes('Echange','#btn-check-3')">
+                                <label class="btn btn-outline-primary" for="btn-check-3">Echange</label><br>
+                            </div>
+
+                    </div>
+                    <div class="sidebar-grid sidebar-price-filter shadow mb-50">
+                        <div class="sidebar-title">
+                            <h3 class="title semi-bold mb-20">Filter by price</h3>
+                        </div>
+                        <div class="slidecontainer">
+                            <input type="range" min="0" max="{{ maxprix }}" value="{{ maxprix }}" step="1" class="slider" id="myrange">
+                            <div class="bottom-part">
+
+                                <p class="rangevalue mb-0">Price: 0 DT — <span id="rangevalue"></span> DT</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-grid sidebar-tags shadow">
+                        <div class="sidebar-title">
+                            <h3 class="title semi-bold mb-20">Filter Par Categorie </h3>
+                        </div>
+
+                        <script>
+                            var cata=[];
+                            var ncata=0;
+                            function checkCategories(){
+
+                                {% for cate in cat %}
+                                $(document).ready(function (){
+                                    if ($("#{{ cate.id }}").is(':checked')){
+                                        if(jQuery.inArray({{ cate.id }},cata)==-1) {
+                                            cata.push({{ cate.id }});
+                                            ncata+=1;
+                                        }
+                                    }else{
+                                        if(jQuery.inArray({{ cate.id }},cata)!==-1) {
+                                            cata.splice(cata.indexOf({{ cate.id }}),1);
+                                            ncata-=1;
+                                        }
+
+                                    }
+
+
+                                });
+                                {% endfor %}
+
+
+
+                                console.log(cata)
+
+                            };
+
+                        </script>
+                        <div class="tagcloud">
+                            {% for cate in cat %}
+                                <input type="checkbox" class="btn-check" id="{{ cate.id }}" onchange="checkCategories()" >
+                                <label class="btn btn-outline-primary" for="{{ cate.id }}">{{ cate.nom }}</label><br>
+
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}
+{% block js %}
+    <script>
+        $(document).ready(function (){
+            $("select.from-control").change(function (){
+                var selectedSort =$(this).children("option:selected").val();
+                var search =$('#search').val();
+                var range =$('#myrange').val();
+                var DATA  =  {'sortBy' : selectedSort,'search':search, 'range':range,'cate':cata,'ncata':ncata, 'ty':ty, 'nty':nty };
+                console.log(DATA);
+                $.ajax({type:"POST",
+                        url: "{{ path('book1_index',{'id':id})}}"  ,
+                        data: DATA,
+                        success: function (d){
+                            let data = JSON.parse(d)
+                            console.log(data);
+                            $("#allBooks").hide();
+                            $("#filtred2").remove();
+                            $("#filtred").html("<div id='filtred2' class=\"row\"></div>")
+                            $.each(data, function (k,el) {
+                                $("#filtred2").append(
+                                    "<div class='col-lg-5 col-sm-6 mb-73 md-mb-43 bcard'>"+
+                                    "<div class='card ' >"+
+                                    " <img class='card-img-top' style='height:460px; width: 331px;' src='/assets/images/"+el.image+"' alt='Card image cap'>"+
+                                    "<div class='card-body'>"+
+                                    " <h5 class='card-title'>"+el.nom+"</h5>"+
+                                    " <p class='card-text'>Categorie:"+ el.categorie.nom +" <br>Par "+ el.user.Nom +"</p>"+
+                                    "  <a href='/book1/"+ el.id +"'class='btn btn-primary'>Details</a>"+
+                                    " </div>"+
+                                    "</div>"
+
+                                );
+                            })
+                        }
+                    }
+                );
+
+            });
+
+        });
+    </script>
+    <script>
+        $(document).ready(function (){
+            $('#search').keyup(function(){
+                var selectedSort =$("select.from-control").children("option:selected").val();
+                var search =$('#search').val();
+                var range =$('#myrange').val();
+                var DATA  =  {'sortBy' : selectedSort,'search':search, 'range':range, 'cate':cata,'ncata':ncata, 'ty':ty, 'nty':nty};
+                console.log(DATA);
+                $.ajax({type:"POST",
+                        url: "{{ path('book1_index',{'id':id})}}"  ,
+                        data: DATA,
+                        success: function (d){
+                                let data = JSON.parse(d)
+                                console.log(data);
+                                $("#allBooks").hide();
+                                $("#filtred2").remove();
+                                $("#filtred").html("<div id='filtred2' class=\"row\"></div>")
+                                $.each(data, function (k, el) {
+                                    $("#filtred2").append(
+                                        "<div class='col-lg-5 col-sm-6 mb-73 md-mb-43 bcard'>" +
+                                        "<div class='card '>" +
+                                        " <img class='card-img-top' style='height:460px; width: 331px;' src='/assets/images/" + el.image + "' alt='Card image cap'>" +
+                                        "<div class='card-body'>" +
+                                        " <h5 class='card-title'>" + el.nom + "</h5>" +
+                                        " <p class='card-text'>Categorie:" + el.categorie.nom + " <br>Par " + el.user.Nom + "</p>" +
+                                        "  <a href='/book1/" + el.id + "'class='btn btn-primary'>Details</a>" +
+                                        " </div>" +
+                                        "</div>"
+                                    );
+                                })
+                            }
+                        }
+
+
+                );
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function (){
+            $("#myrange").change(function (){
+                var range =$('#myrange').val();
+                var selectedSort =$("select.from-control").children("option:selected").val();
+                var search =$('#search').val();
+                var DATA  =  {'sortBy' : selectedSort,'search':search, 'range':range,'cate':cata,'ncata':ncata, 'ty':ty, 'nty':nty };
+                console.log(DATA);
+                $.ajax({type:"POST",
+                        url: "{{ path('book1_index',{'id':id})}}"  ,
+                        data: DATA,
+                        success: function (d){
+                            let data = JSON.parse(d)
+                            console.log(data);
+                            $("#allBooks").hide();
+                            $("#filtred2").remove();
+                            $("#filtred").html("<div id='filtred2' class=\"row\"></div>")
+                            $.each(data, function (k,el) {
+                                $("#filtred2").append(
+                                    "<div class='col-lg-5 col-sm-6 mb-73 md-mb-43 bcard'>"+
+                                    "<div class='card ' >"+
+                                    " <img class='card-img-top' style='height:460px; width: 331px;' src='/assets/images/"+el.image+"' alt='Card image cap'>"+
+                                    "<div class='card-body'>"+
+                                    " <h5 class='card-title'>"+el.nom+"</h5>"+
+                                    " <p class='card-text'>Categorie:"+ el.categorie.nom +" <br>Par "+ el.user.Nom +"</p>"+
+                                    "  <a href='/book1/"+ el.id +"'class='btn btn-primary'>Details</a>"+
+                                    " </div>"+
+                                    "</div>"
+
+                                );
+                            })
+                        }
+                    }
+                );
+
+            });
+
+        });
+    </script>
+    <script>
+        $(document).ready(function (){
+            $("input.btn-check").change(function (){
+                var range =$('#myrange').val();
+                var selectedSort =$("select.from-control").children("option:selected").val();
+                var search =$('#search').val();
+                var DATA  =  {'sortBy' : selectedSort,'search':search, 'range':range,'cate':cata,'ncata':ncata , 'ty':ty, 'nty':nty};
+                console.log(DATA);
+                $.ajax({type:"POST",
+                        url: "{{ path('book1_index',{'id':id})}}"  ,
+                        data: DATA,
+                        success: function (d){
+                            let data = JSON.parse(d)
+                            console.log(data);
+                            $("#allBooks").hide();
+                            $("#filtred2").remove();
+                            $("#filtred").html("<div id='filtred2' class=\"row\"></div>")
+                            $.each(data, function (k,el) {
+                                $("#filtred2").append(
+                                    "<div class='col-lg-5 col-sm-6 mb-73 md-mb-43 bcard'>"+
+                                    "<div class='card ' style='margin: auto'>"+
+                                    " <img class='card-img-top' style='height:400px; width: 331px;' src='/assets/images/"+el.image+"' alt='Card image cap'>"+
+                                    "<div class='card-body'>"+
+                                    " <h5 class='card-title'>"+el.nom+"</h5>"+
+                                    " <p class='card-text'>Categorie:"+ el.categorie.nom +" <br>Par "+ el.user.Nom +"</p>"+
+                                    "  <a href='/book1/"+ el.id +"'class='btn btn-primary'>Details</a>"+
+                                    " </div>"+
+                                    "</div>"
+
+                                );
+                            })
+                        }
+                    }
+                );
+
+            });
+
+        });
+    </script>
+
+
+{% endblock %}

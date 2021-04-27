@@ -132,5 +132,18 @@ class Cours
         return $this->idCours;
     }
 
+    public function getIdEtab(): ?int
+    {
+        return $this->idEtab;
+    }
+
+    public function setIdEtab(?int $idEtab): self
+    {
+        $this->idEtab = $idEtab;
+
+        return $this;
+    }
+
+
 
 }
