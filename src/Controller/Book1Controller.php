@@ -7,13 +7,18 @@ use App\Entity\Categorie;
 use App\Entity\User;
 use App\Form\Book1Type;
 
+use GuzzleHttp\Client;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpClient\CurlHttpClient;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\DomCrawler\Crawler;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
+
 /**
  * @Route("/book1")
  */
@@ -68,7 +73,7 @@ class Book1Controller extends AbstractController
 
             } elseif ($request->get('sortBy') != "def") {
                 if($ncata==0){
-                    if(nty==0){
+                    if($nty==0){
                         $ty=["Vendre","Demande","Echange"];
                         $cate=$em->getRepository(Categorie::class)->allId();
                         $book1s = $em->getRepository(Book1::class)->filterBook($nom,$cate,$ty,$prix3,$sort);
@@ -82,7 +87,7 @@ class Book1Controller extends AbstractController
                         return new JsonResponse($data);
                     }
                 }else {
-                    if(nty==0){
+                    if($nty==0){
                         $ty=["Vendre","Demande","Echange"];
                         $book1s = $em->getRepository(Book1::class)->filterBook($nom, $cate, $ty, $prix3, $sort);
                         $data = $serializer->normalize($book1s);
@@ -168,14 +173,30 @@ class Book1Controller extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+    private $client;
+
+    public function __construct(HttpClientInterface $client)
+    {
+        $this->client = $client;
+    }
 
     /**
      * @Route("/{id}", name="book1_show", methods={"GET"})
      */
     public function show(Book1 $book1): Response
     {
+        $url='https://openlibrary.org/search?isbn='.$book1->getIsbn();
+        $response = $this->client->request('GET',
+            $url
+        )->getContent();
+        $html=$response;
+        $crawler=new Crawler($html);
+        $element=$crawler->filter('div.editionAbout');
+        $readersStats = $element ->filter('ul.readers-stats > li.avg-ratings')->filterXPath('//span[4]');
+
         return $this->render('book1/show.html.twig', [
             'book1' => $book1,
+            'res'=>$readersStats->text(),
         ]);
     }
 

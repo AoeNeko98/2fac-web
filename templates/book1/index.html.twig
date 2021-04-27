@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_s.html.twig' %}
 
 {% block title %}Book1 index{% endblock %}
 
@@ -211,20 +211,18 @@
                         <div class="mb-0">
                             <div class="input-group">
                                 <div class="form-outline">
-                                    <input type="search" id="search" class="form-control">
-                                    <label class="form-label" for="form1">Search</label>
+                                    <input type="search" id="search" class="form-control" placeholder="search..">
+
                                 </div>
-                                <button type="button" class="btn btn-primary">
-                                    <i class="flaticon-search"></i>
-                                </button>
+
                             </div>
                         </div>
                     </div>
                     <div class="row" id="allBooks">
                         {% for book1 in book1s %}
-                            <div class="col-lg-5 col-sm-6 mb-73 md-mb-43">
-                                <div class="card" style="width: 18rem;">
-                                    <img class="card-img-top" src="{{ asset('/assets/images/' ~book1.image) }}" alt="Card image cap">
+                            <div class="col-lg-5 col-sm-6 mb-73 md-mb-43 bcard">
+                                <div class="card " >
+                                    <img class="card-img-top" style='height:460px; width: 331px;' src="{{ asset('/assets/images/' ~book1.image) }}" alt="Card image cap">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ book1.nom }}</h5>
                                         <p class="card-text">Categorie:{{ book1.categorie.nom }} <br>Par {{ book1.user.nom }}</p>
@@ -359,13 +357,13 @@
                             $("#filtred").html("<div id='filtred2' class=\"row\"></div>")
                             $.each(data, function (k,el) {
                                 $("#filtred2").append(
-                                    "<div class='col-md-4'>"+
-                                    "<div class='card' style='width: 18rem;'>"+
-                                    " <img class='card-img-top' src='/assets/images/"+el.image+"' alt='Card image cap'>"+
+                                    "<div class='col-lg-5 col-sm-6 mb-73 md-mb-43 bcard'>"+
+                                    "<div class='card ' >"+
+                                    " <img class='card-img-top' style='height:460px; width: 331px;' src='/assets/images/"+el.image+"' alt='Card image cap'>"+
                                     "<div class='card-body'>"+
                                     " <h5 class='card-title'>"+el.nom+"</h5>"+
                                     " <p class='card-text'>Categorie:"+ el.categorie.nom +" <br>Par "+ el.user.nom +"</p>"+
-                                    "  <a href='/book1/"+ el.id +"/show'class='btn btn-primary'>Details</a>"+
+                                    "  <a href='/book1/"+ el.id +"'class='btn btn-primary'>Details</a>"+
                                     " </div>"+
                                     "</div>"
 
@@ -390,26 +388,30 @@
                 $.ajax({type:"POST",
                         url: "{{ path('book1_index')}}"  ,
                         data: DATA,
-                        success: function (data){
-                            console.log(data);
-                            $("#allBooks").hide();
-                            $("#filtred2").remove();
-                            $("#filtred").html("<div id='filtred2' class=\"row\"></div>")
-                            $.each(data, function (k,el) {
-                                $("#filtred2").append(
-                                    "<div class='col-md-4'>"+
-                                    "<div class='card' style='width: 18rem;'>"+
-                                    " <img class='card-img-top' src='/assets/images/"+el.image+"' alt='Card image cap'>"+
-                                    "<div class='card-body'>"+
-                                    " <h5 class='card-title'>"+el.nom+"</h5>"+
-                                    " <p class='card-text'>Categorie:"+ el.categorie.nom +" <br>Par "+ el.user.nom +"</p>"+
-                                    "  <a href='/book1/"+ el.id +"/show'class='btn btn-primary'>Details</a>"+
-                                    " </div>"+
-                                    "</div>"
+                        success: function (data) {
+                            if (!$.trim(data)){
 
-                                );
-                            })
+                            }else {
+                                console.log(data);
+                                $("#allBooks").hide();
+                                $("#filtred2").remove();
+                                $("#filtred").html("<div id='filtred2' class=\"row\"></div>")
+                                $.each(data, function (k, el) {
+                                    $("#filtred2").append(
+                                        "<div class='col-lg-5 col-sm-6 mb-73 md-mb-43 bcard'>" +
+                                        "<div class='card '>" +
+                                        " <img class='card-img-top' style='height:460px; width: 331px;' src='/assets/images/" + el.image + "' alt='Card image cap'>" +
+                                        "<div class='card-body'>" +
+                                        " <h5 class='card-title'>" + el.nom + "</h5>" +
+                                        " <p class='card-text'>Categorie:" + el.categorie.nom + " <br>Par " + el.user.nom + "</p>" +
+                                        "  <a href='/book1/" + el.id + "'class='btn btn-primary'>Details</a>" +
+                                        " </div>" +
+                                        "</div>"
+                                    );
+                                })
+                            }
                         }
+
                     }
                 );
             });
@@ -433,13 +435,13 @@
                             $("#filtred").html("<div id='filtred2' class=\"row\"></div>")
                             $.each(data, function (k,el) {
                                 $("#filtred2").append(
-                                    "<div class='col-md-4'>"+
-                                    "<div class='card' style='width: 18rem;'>"+
-                                    " <img class='card-img-top' src='/assets/images/"+el.image+"' alt='Card image cap'>"+
+                                    "<div class='col-lg-5 col-sm-6 mb-73 md-mb-43 bcard'>"+
+                                    "<div class='card ' >"+
+                                    " <img class='card-img-top' style='height:460px; width: 331px;' src='/assets/images/"+el.image+"' alt='Card image cap'>"+
                                     "<div class='card-body'>"+
                                     " <h5 class='card-title'>"+el.nom+"</h5>"+
                                     " <p class='card-text'>Categorie:"+ el.categorie.nom +" <br>Par "+ el.user.nom +"</p>"+
-                                    "  <a href='/book1/"+ el.id +"/show'class='btn btn-primary'>Details</a>"+
+                                    "  <a href='/book1/"+ el.id +"'class='btn btn-primary'>Details</a>"+
                                     " </div>"+
                                     "</div>"
 
@@ -471,13 +473,13 @@
                             $("#filtred").html("<div id='filtred2' class=\"row\"></div>")
                             $.each(data, function (k,el) {
                                 $("#filtred2").append(
-                                    "<div class='col-md-4'>"+
-                                    "<div class='card' style='width: 18rem;'>"+
-                                    " <img class='card-img-top' src='/assets/images/"+el.image+"' alt='Card image cap'>"+
+                                    "<div class='col-lg-5 col-sm-6 mb-73 md-mb-43 bcard'>"+
+                                    "<div class='card ' style='margin: auto'>"+
+                                    " <img class='card-img-top' style='height:400px; width: 331px;' src='/assets/images/"+el.image+"' alt='Card image cap'>"+
                                     "<div class='card-body'>"+
                                     " <h5 class='card-title'>"+el.nom+"</h5>"+
                                     " <p class='card-text'>Categorie:"+ el.categorie.nom +" <br>Par "+ el.user.nom +"</p>"+
-                                    "  <a href='/book1/"+ el.id +"/show'class='btn btn-primary'>Details</a>"+
+                                    "  <a href='/book1/"+ el.id +"'class='btn btn-primary'>Details</a>"+
                                     " </div>"+
                                     "</div>"
 

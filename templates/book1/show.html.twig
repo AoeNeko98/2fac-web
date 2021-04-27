@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_s.html.twig' %}
 
 {% block title %}Book Details{% endblock %}
 
@@ -35,7 +35,10 @@
                                 <div class="sub-title primary">{{ book1.type }}</div>
                                 <span class="skillbar-title">Description</span>
                                 <div class="sub-title primary">{{ book1.description}}</div>
+                                <span class="skillbar-title">rating</span>
+                                <div class="sub-title primary">{{res}}</div>
                                 <div class="btn-group mt-60">
+
                                     <a class="readon" href="{{ path('book1_index') }}" >Back to list</a>
                                     <a class="readon" style="margin-left: 10px" href="{{ path('book1_mybib') }}" >Back to my list</a>
 
@@ -55,6 +58,7 @@
             </div>
         </div>
         <!-- Skillbar Section End -->
+
 
 
 

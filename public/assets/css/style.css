@@ -301,6 +301,15 @@ ul {
   background-size: cover;
   background-position: center center;
 }
+.bcard{
+  height:660px;
+  width: 290px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 1px;
+
+
+}
 .bg14 {
   background-image: url(assets/images/bg/bg14.jpg);
   background-repeat: no-repeat;
